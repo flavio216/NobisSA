@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaDato;
 
-namespace CapaNegocio.Gestores
+namespace CapaNegocio
 {
     public class bdSucursales
     {
-        public bool InsertarRubro(string nombre)
+        public bool InsertarSucursal(int idsucursal, string nombre)
         {
             bool resultado = false;
 
@@ -20,9 +20,10 @@ namespace CapaNegocio.Gestores
 
             try
             {
-                string consulta = "INSERT INTO sucursales (sucursal) VALUES (@sucursal)";
+                string consulta = "INSERT INTO sucursales (idsucursal, sucursal) VALUES (@idsucursal,@sucursal)";
                 SqlCommand cmd = new SqlCommand(consulta, conex.conexion);
                 cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@idsucursal", idsucursal);
                 cmd.Parameters.AddWithValue("@sucursal", nombre);
 
                 cmd.CommandType = CommandType.Text;
@@ -53,33 +54,32 @@ namespace CapaNegocio.Gestores
             AccesoDatos conex = new AccesoDatos();
             DataTable dt = new DataTable();
             conex.Conectar();
-            conex.pComando.CommandText = "SELECT sucursal FROM sucursales ORDER BY 1";
+            conex.pComando.CommandText = "SELECT idsucursal, sucursal FROM sucursales ORDER BY 1";
             dt.Load(conex.pComando.ExecuteReader());
             conex.Desconectar();
             return dt;
         }
-        /*
-        public bool EditarRubro(string nombre, int id)
+        
+        public bool EditarSucursal(string nombre, int id)
         {
             bool resultado = false;
 
-            ConexionesBD.ConexionBD conex = new ConexionesBD.ConexionBD();
+            AccesoDatos conex = new AccesoDatos();
 
             try
             {
-                string consulta = "UPDATE Rubros SET " +
-                    "Nombre = @Nombre" +
-                    " WHERE idRubro = @idRubro";
+                string consulta = "UPDATE sucursales SET " +
+                    "sucursal = @sucursal" +
+                    " WHERE idSucursal = @idSucursal";
                 SqlCommand cmd = new SqlCommand(consulta, conex.conexion);
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@idRubro", id);
-                cmd.Parameters.AddWithValue("@Nombre", nombre);
+                cmd.Parameters.AddWithValue("@idSucursal", id);
+                cmd.Parameters.AddWithValue("@sucursal", nombre);
 
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = consulta;
 
                 conex.Conectar();
-                //cmd.Connection = conex.conexion;
                 cmd.ExecuteNonQuery();
                 resultado = true;
 
@@ -97,6 +97,41 @@ namespace CapaNegocio.Gestores
             }
 
             return resultado;
-        }*/
+        }
+        public bool EliminarSucursal(int id)
+        {
+            bool resultado = false;
+
+            AccesoDatos conex = new AccesoDatos();
+
+            try
+            {
+                string consulta = "delete from sucursales WHERE idSucursal = @idSucursal";
+                SqlCommand cmd = new SqlCommand(consulta, conex.conexion);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@idSucursal", id);
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = consulta;
+
+                conex.Conectar();
+                cmd.ExecuteNonQuery();
+                resultado = true;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+
+                    "No se ha podido actualizar.",
+                    "Aviso");
+            }
+            finally
+            {
+                conex.Desconectar();
+            }
+
+            return resultado;
+        }
     }
 }

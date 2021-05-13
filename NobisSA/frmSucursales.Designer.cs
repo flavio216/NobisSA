@@ -38,7 +38,8 @@ namespace NobisSA
             this.btnNuevo = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblSucursal = new System.Windows.Forms.Label();
-            this.lstSucursal = new System.Windows.Forms.ListBox();
+            this.lstSucursales = new System.Windows.Forms.ListBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -58,6 +59,7 @@ namespace NobisSA
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCargar
             // 
@@ -113,6 +115,7 @@ namespace NobisSA
             this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnEditar
             // 
@@ -131,6 +134,7 @@ namespace NobisSA
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -149,10 +153,11 @@ namespace NobisSA
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(39, 47);
+            this.txtNombre.Location = new System.Drawing.Point(26, 84);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(199, 20);
@@ -170,14 +175,22 @@ namespace NobisSA
             this.lblSucursal.TabIndex = 30;
             this.lblSucursal.Text = "Cargar sucursal:";
             // 
-            // lstSucursal
+            // lstSucursales
             // 
-            this.lstSucursal.FormattingEnabled = true;
-            this.lstSucursal.Location = new System.Drawing.Point(284, 9);
-            this.lstSucursal.Margin = new System.Windows.Forms.Padding(2);
-            this.lstSucursal.Name = "lstSucursal";
-            this.lstSucursal.Size = new System.Drawing.Size(494, 238);
-            this.lstSucursal.TabIndex = 27;
+            this.lstSucursales.FormattingEnabled = true;
+            this.lstSucursales.Location = new System.Drawing.Point(331, 30);
+            this.lstSucursales.Name = "lstSucursales";
+            this.lstSucursales.Size = new System.Drawing.Size(164, 199);
+            this.lstSucursales.TabIndex = 74;
+            this.lstSucursales.SelectedIndexChanged += new System.EventHandler(this.lstSucursales_SelectedIndexChanged);
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(26, 44);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(199, 20);
+            this.txtCodigo.TabIndex = 75;
             // 
             // frmSucursales
             // 
@@ -185,6 +198,8 @@ namespace NobisSA
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtCodigo);
+            this.Controls.Add(this.lstSucursales);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.btnVolver);
@@ -193,9 +208,9 @@ namespace NobisSA
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblSucursal);
-            this.Controls.Add(this.lstSucursal);
             this.Name = "frmSucursales";
             this.Text = "frmSucursales";
+            this.Load += new System.EventHandler(this.frmSucursales_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,6 +226,7 @@ namespace NobisSA
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblSucursal;
-        private System.Windows.Forms.ListBox lstSucursal;
+        private System.Windows.Forms.ListBox lstSucursales;
+        private System.Windows.Forms.TextBox txtCodigo;
     }
 }

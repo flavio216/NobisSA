@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapaNegocio.Clases
+namespace CapaNegocio
 {
     public class clsSucursales
     {
@@ -24,5 +24,11 @@ namespace CapaNegocio.Clases
         }
         public int pId { get => id; set => id = value; }
         public string pSucursal { get => sucursal; set => sucursal = value; }
+
+        override
+        public string ToString()
+        {
+            return pSucursal;
+        }
     }
 }

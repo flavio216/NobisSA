@@ -1,12 +1,6 @@
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\bin\Debug\NobisSA.exe.config
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\bin\Debug\NobisSA.exe
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\bin\Debug\NobisSA.pdb
-C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.csprojAssemblyReference.cache
-C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.Properties.Resources.resources
-C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.csproj.GenerateResource.cache
-C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.csproj.CoreCompileInputs.cache
-C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.exe
-C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.pdb
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\bin\Debug\CapaDato.dll
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\bin\Debug\CapaNegocio.dll
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\bin\Debug\System.Configuration.ConfigurationManager.dll
@@ -21,6 +15,12 @@ C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\bin\Debug\System.Configuration.C
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\bin\Debug\System.Security.AccessControl.xml
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\bin\Debug\System.Security.Permissions.xml
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.csprojAssemblyReference.cache
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.frmSucursales.resources
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.frmTramites.resources
+C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.Properties.Resources.resources
+C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.csproj.GenerateResource.cache
+C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.csproj.CoreCompileInputs.cache
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.csproj.CopyComplete
+C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.exe
+C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.pdb
