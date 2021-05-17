@@ -16,7 +16,7 @@ namespace NobisSA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSucursales());
+            Application.Run(new frmTramites());
         }
     }
 }
