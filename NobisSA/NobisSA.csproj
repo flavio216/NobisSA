@@ -65,24 +65,42 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmSucursales.cs">
+    <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSucursales.Designer.cs">
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tramites\frmAgentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tramites\frmAgentes.Designer.cs">
+      <DependentUpon>frmAgentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tramites\frmSucursales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tramites\frmSucursales.Designer.cs">
       <DependentUpon>frmSucursales.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTramites.cs">
+    <Compile Include="Tramites\frmTramites.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTramites.Designer.cs">
+    <Compile Include="Tramites\frmTramites.Designer.cs">
       <DependentUpon>frmTramites.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmSucursales.resx">
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tramites\frmAgentes.resx">
+      <DependentUpon>frmAgentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tramites\frmSucursales.resx">
       <DependentUpon>frmSucursales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTramites.resx">
+    <EmbeddedResource Include="Tramites\frmTramites.resx">
       <DependentUpon>frmTramites.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

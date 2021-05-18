@@ -62,8 +62,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\clsSucursales.cs" />
-    <Compile Include="Gestores\bdSucursales.cs" />
+    <Compile Include="Tramites\Clases\clsAgentes.cs" />
+    <Compile Include="Tramites\Clases\clsSucursales.cs" />
+    <Compile Include="Tramites\Clases\clsTramites.cs" />
+    <Compile Include="Tramites\Gestores\bdAgentes.cs" />
+    <Compile Include="Tramites\Gestores\bdSucursales.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

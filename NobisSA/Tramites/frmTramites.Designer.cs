@@ -32,6 +32,7 @@ namespace NobisSA
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTramites));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.dtgCliente = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lblCantidad = new System.Windows.Forms.Label();
@@ -39,11 +40,22 @@ namespace NobisSA
             this.btnBuscar = new System.Windows.Forms.PictureBox();
             this.lblApellidoBuscar = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cmbAgente = new System.Windows.Forms.ComboBox();
+            this.cmbSucursal = new System.Windows.Forms.ComboBox();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnRechazado = new System.Windows.Forms.Button();
+            this.btnAutorizado = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblLocalidad = new System.Windows.Forms.Label();
             this.cmbLocalidad = new System.Windows.Forms.ComboBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.Documento = new System.Windows.Forms.Label();
             this.txtDocumento = new System.Windows.Forms.TextBox();
@@ -58,30 +70,19 @@ namespace NobisSA
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnCargar = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLocalidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLocalidad)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(11, 11);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
@@ -106,6 +107,17 @@ namespace NobisSA
             this.tabPage1.Size = new System.Drawing.Size(1178, 515);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Buscar cliente";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(89, 48);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(189, 21);
+            this.comboBox2.TabIndex = 16;
             // 
             // dtgCliente
             // 
@@ -145,7 +157,7 @@ namespace NobisSA
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.lblCantidad.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.lblCantidad.Location = new System.Drawing.Point(962, 90);
+            this.lblCantidad.Location = new System.Drawing.Point(389, 75);
             this.lblCantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(179, 17);
@@ -156,10 +168,10 @@ namespace NobisSA
             // 
             this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnImprimir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnImprimir.Location = new System.Drawing.Point(1062, 42);
+            this.btnImprimir.Location = new System.Drawing.Point(489, 27);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(2);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(56, 27);
+            this.btnImprimir.Size = new System.Drawing.Size(88, 38);
             this.btnImprimir.TabIndex = 12;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
@@ -190,21 +202,22 @@ namespace NobisSA
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.tabPage2.Controls.Add(this.cmbAgente);
+            this.tabPage2.Controls.Add(this.cmbSucursal);
+            this.tabPage2.Controls.Add(this.btnModificar);
+            this.tabPage2.Controls.Add(this.btnRechazado);
+            this.tabPage2.Controls.Add(this.btnAutorizado);
             this.tabPage2.Controls.Add(this.pictureBox1);
             this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.dateTimePicker2);
             this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.dateTimePicker1);
             this.tabPage2.Controls.Add(this.txtTelefono);
             this.tabPage2.Controls.Add(this.lblTelefono);
             this.tabPage2.Controls.Add(this.lblLocalidad);
             this.tabPage2.Controls.Add(this.cmbLocalidad);
-            this.tabPage2.Controls.Add(this.txtDireccion);
             this.tabPage2.Controls.Add(this.lblDireccion);
             this.tabPage2.Controls.Add(this.Documento);
             this.tabPage2.Controls.Add(this.txtDocumento);
@@ -227,10 +240,145 @@ namespace NobisSA
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Cargar cliente";
             // 
+            // cmbAgente
+            // 
+            this.cmbAgente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbAgente.FormattingEnabled = true;
+            this.cmbAgente.Location = new System.Drawing.Point(531, 156);
+            this.cmbAgente.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbAgente.Name = "cmbAgente";
+            this.cmbAgente.Size = new System.Drawing.Size(209, 21);
+            this.cmbAgente.TabIndex = 106;
+            // 
+            // cmbSucursal
+            // 
+            this.cmbSucursal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbSucursal.FormattingEnabled = true;
+            this.cmbSucursal.Location = new System.Drawing.Point(531, 95);
+            this.cmbSucursal.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbSucursal.Name = "cmbSucursal";
+            this.cmbSucursal.Size = new System.Drawing.Size(209, 21);
+            this.cmbSucursal.TabIndex = 105;
+            this.cmbSucursal.SelectedIndexChanged += new System.EventHandler(this.cmbSucursal_SelectedIndexChanged);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Imprint MT Shadow", 13.5F, System.Drawing.FontStyle.Bold);
+            this.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
+            this.btnModificar.Location = new System.Drawing.Point(312, 411);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(113, 93);
+            this.btnModificar.TabIndex = 104;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnRechazado
+            // 
+            this.btnRechazado.Location = new System.Drawing.Point(628, 343);
+            this.btnRechazado.Name = "btnRechazado";
+            this.btnRechazado.Size = new System.Drawing.Size(157, 66);
+            this.btnRechazado.TabIndex = 103;
+            this.btnRechazado.Text = "RECHAZADO";
+            this.btnRechazado.UseVisualStyleBackColor = true;
+            // 
+            // btnAutorizado
+            // 
+            this.btnAutorizado.Location = new System.Drawing.Point(448, 343);
+            this.btnAutorizado.Name = "btnAutorizado";
+            this.btnAutorizado.Size = new System.Drawing.Size(157, 66);
+            this.btnAutorizado.TabIndex = 102;
+            this.btnAutorizado.Text = "AUTORIZADO";
+            this.btnAutorizado.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(743, 136);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(57, 59);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 101;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.textBox2.Location = new System.Drawing.Point(530, 285);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(209, 20);
+            this.textBox2.TabIndex = 99;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label4.Location = new System.Drawing.Point(421, 289);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 16);
+            this.label4.TabIndex = 100;
+            this.label4.Text = "Observacion:";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(528, 225);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(220, 20);
+            this.dateTimePicker2.TabIndex = 98;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Location = new System.Drawing.Point(396, 227);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 16);
+            this.label3.TabIndex = 97;
+            this.label3.Text = "Fecha Auditado:";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(457, 161);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 16);
+            this.label1.TabIndex = 93;
+            this.label1.Text = "Agente:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(585, 21);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 91;
+            // 
             // txtTelefono
             // 
             this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtTelefono.Location = new System.Drawing.Point(141, 269);
+            this.txtTelefono.Location = new System.Drawing.Point(143, 269);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(209, 20);
@@ -242,7 +390,7 @@ namespace NobisSA
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblTelefono.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblTelefono.Location = new System.Drawing.Point(64, 271);
+            this.lblTelefono.Location = new System.Drawing.Point(66, 271);
             this.lblTelefono.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(67, 16);
@@ -255,7 +403,7 @@ namespace NobisSA
             this.lblLocalidad.AutoSize = true;
             this.lblLocalidad.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblLocalidad.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblLocalidad.Location = new System.Drawing.Point(445, 102);
+            this.lblLocalidad.Location = new System.Drawing.Point(447, 102);
             this.lblLocalidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLocalidad.Name = "lblLocalidad";
             this.lblLocalidad.Size = new System.Drawing.Size(70, 16);
@@ -267,20 +415,11 @@ namespace NobisSA
             this.cmbLocalidad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbLocalidad.FormattingEnabled = true;
-            this.cmbLocalidad.Location = new System.Drawing.Point(141, 222);
+            this.cmbLocalidad.Location = new System.Drawing.Point(144, 222);
             this.cmbLocalidad.Margin = new System.Windows.Forms.Padding(2);
             this.cmbLocalidad.Name = "cmbLocalidad";
             this.cmbLocalidad.Size = new System.Drawing.Size(209, 21);
             this.cmbLocalidad.TabIndex = 10;
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtDireccion.Location = new System.Drawing.Point(530, 159);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(209, 20);
-            this.txtDireccion.TabIndex = 7;
             // 
             // lblDireccion
             // 
@@ -288,7 +427,7 @@ namespace NobisSA
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblDireccion.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblDireccion.Location = new System.Drawing.Point(15, 227);
+            this.lblDireccion.Location = new System.Drawing.Point(17, 227);
             this.lblDireccion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(116, 16);
@@ -301,7 +440,7 @@ namespace NobisSA
             this.Documento.AutoSize = true;
             this.Documento.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.Documento.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Documento.Location = new System.Drawing.Point(80, 100);
+            this.Documento.Location = new System.Drawing.Point(82, 100);
             this.Documento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Documento.Name = "Documento";
             this.Documento.Size = new System.Drawing.Size(44, 16);
@@ -311,7 +450,7 @@ namespace NobisSA
             // txtDocumento
             // 
             this.txtDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtDocumento.Location = new System.Drawing.Point(141, 96);
+            this.txtDocumento.Location = new System.Drawing.Point(143, 96);
             this.txtDocumento.Margin = new System.Windows.Forms.Padding(2);
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(209, 20);
@@ -320,7 +459,7 @@ namespace NobisSA
             // txtApellido
             // 
             this.txtApellido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtApellido.Location = new System.Drawing.Point(141, 179);
+            this.txtApellido.Location = new System.Drawing.Point(143, 179);
             this.txtApellido.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(209, 20);
@@ -332,7 +471,7 @@ namespace NobisSA
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblApellido.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblApellido.Location = new System.Drawing.Point(48, 179);
+            this.lblApellido.Location = new System.Drawing.Point(50, 179);
             this.lblApellido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(76, 16);
@@ -342,7 +481,7 @@ namespace NobisSA
             // txtNombre
             // 
             this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtNombre.Location = new System.Drawing.Point(141, 141);
+            this.txtNombre.Location = new System.Drawing.Point(143, 141);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(209, 20);
@@ -354,7 +493,7 @@ namespace NobisSA
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblNombre.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblNombre.Location = new System.Drawing.Point(57, 141);
+            this.lblNombre.Location = new System.Drawing.Point(59, 141);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(67, 16);
@@ -367,7 +506,7 @@ namespace NobisSA
             this.lblCodigoText.AutoSize = true;
             this.lblCodigoText.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblCodigoText.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblCodigoText.Location = new System.Drawing.Point(525, 21);
+            this.lblCodigoText.Location = new System.Drawing.Point(527, 21);
             this.lblCodigoText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCodigoText.Name = "lblCodigoText";
             this.lblCodigoText.Size = new System.Drawing.Size(48, 16);
@@ -382,10 +521,11 @@ namespace NobisSA
             this.pbLocalidad.Location = new System.Drawing.Point(743, 78);
             this.pbLocalidad.Margin = new System.Windows.Forms.Padding(2);
             this.pbLocalidad.Name = "pbLocalidad";
-            this.pbLocalidad.Size = new System.Drawing.Size(54, 59);
+            this.pbLocalidad.Size = new System.Drawing.Size(57, 59);
             this.pbLocalidad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLocalidad.TabIndex = 86;
             this.pbLocalidad.TabStop = false;
+            this.pbLocalidad.Click += new System.EventHandler(this.pbLocalidad_Click);
             // 
             // btnCancelar
             // 
@@ -395,7 +535,7 @@ namespace NobisSA
             this.btnCancelar.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(332, 425);
+            this.btnCancelar.Location = new System.Drawing.Point(441, 425);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(93, 80);
@@ -413,7 +553,7 @@ namespace NobisSA
             this.btnSalir.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-            this.btnSalir.Location = new System.Drawing.Point(480, 425);
+            this.btnSalir.Location = new System.Drawing.Point(549, 414);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(93, 80);
@@ -431,7 +571,7 @@ namespace NobisSA
             this.btnNuevo.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
-            this.btnNuevo.Location = new System.Drawing.Point(60, 425);
+            this.btnNuevo.Location = new System.Drawing.Point(62, 425);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(93, 80);
@@ -465,7 +605,7 @@ namespace NobisSA
             this.btnCargar.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
             this.btnCargar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCargar.Image = ((System.Drawing.Image)(resources.GetObject("btnCargar.Image")));
-            this.btnCargar.Location = new System.Drawing.Point(198, 425);
+            this.btnCargar.Location = new System.Drawing.Point(200, 425);
             this.btnCargar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(93, 80);
@@ -475,132 +615,13 @@ namespace NobisSA
             this.btnCargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCargar.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(585, 21);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 91;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.textBox1.Location = new System.Drawing.Point(530, 98);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(209, 20);
-            this.textBox1.TabIndex = 92;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(455, 161);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 16);
-            this.label1.TabIndex = 93;
-            this.label1.Text = "Agente:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(528, 222);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(126, 21);
-            this.comboBox1.TabIndex = 95;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(456, 222);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 16);
-            this.label2.TabIndex = 96;
-            this.label2.Text = "Estado:";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(528, 271);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(220, 20);
-            this.dateTimePicker2.TabIndex = 98;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(394, 273);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 16);
-            this.label3.TabIndex = 97;
-            this.label3.Text = "Fecha Auditado:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.textBox2.Location = new System.Drawing.Point(528, 331);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(209, 20);
-            this.textBox2.TabIndex = 99;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(419, 335);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 16);
-            this.label4.TabIndex = 100;
-            this.label4.Text = "Observacion:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(743, 136);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(54, 59);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 101;
-            this.pictureBox1.TabStop = false;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(89, 48);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(189, 21);
-            this.comboBox2.TabIndex = 16;
-            // 
-            // Form1
+            // frmTramites
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1223, 631);
+            this.ClientSize = new System.Drawing.Size(925, 578);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
+            this.Name = "frmTramites";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -609,8 +630,8 @@ namespace NobisSA
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLocalidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLocalidad)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -630,7 +651,6 @@ namespace NobisSA
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Label lblLocalidad;
         private System.Windows.Forms.ComboBox cmbLocalidad;
-        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.Label Documento;
         private System.Windows.Forms.TextBox txtDocumento;
@@ -651,11 +671,13 @@ namespace NobisSA
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnRechazado;
+        private System.Windows.Forms.Button btnAutorizado;
+        private System.Windows.Forms.ComboBox cmbAgente;
+        private System.Windows.Forms.ComboBox cmbSucursal;
     }
 }
 

@@ -133,5 +133,16 @@ namespace CapaNegocio
 
             return resultado;
         }
+
+        public DataTable ConsultarSucursales()
+        {
+            AccesoDatos conex = new AccesoDatos();
+            DataTable dt = new DataTable();
+            conex.Conectar();
+            conex.pComando.CommandText = "SELECT idsucursal, sucursal FROM sucursales";
+            dt.Load(conex.pComando.ExecuteReader());
+            conex.Desconectar();
+            return dt;
+        }
     }
 }

@@ -28,7 +28,6 @@ namespace NobisSA
              lstSucursales.Items.Clear();
              sucursales.Clear();
 
-             //ConexionesBD.ConexionBD conex = new ConexionesBD.ConexionBD();
              bdSucursales gestor = new bdSucursales();
 
              DataTable dt = gestor.consultarSucursales();
@@ -100,25 +99,6 @@ namespace NobisSA
         {
             nuevo = false;
             Habilitar(true);
-           /* string sucursal = txtNombre.Text;
-            int codigo = int.Parse(txtCodigo.Text);
-            bdSucursales gestor = new bdSucursales();
-
-
-            bool resultado = gestor.EditarSucursal(sucursal, codigo);
-
-            if (resultado)
-            {
-                MessageBox.Show("La sucursal se ha editado con exito.", "Insertar sucursal", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Ha ocurrido un error al intentar editar una sucursal" +
-                    ", por favor contacte al Administrador del sistema.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            cargarLista();*/
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)

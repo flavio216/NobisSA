@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NobisSA.Tramites;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace NobisSA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSucursales());
+            Application.Run(new frmPrincipal());
         }
     }
 }
