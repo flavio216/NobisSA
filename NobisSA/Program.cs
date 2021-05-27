@@ -1,4 +1,5 @@
-﻿using NobisSA.Tramites;
+﻿using NobisSA.Afiliados;
+using NobisSA.Tramites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace NobisSA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrincipal());
+            Application.Run(new frmAfiliados());
         }
     }
 }

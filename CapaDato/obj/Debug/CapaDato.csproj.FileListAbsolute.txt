@@ -13,3 +13,4 @@ C:\Users\FliaC\Documents\GitHub\NobisSA\CapaDato\obj\Debug\CapaDato.csproj.CoreC
 C:\Users\FliaC\Documents\GitHub\NobisSA\CapaDato\obj\Debug\CapaDato.csproj.CopyComplete
 C:\Users\FliaC\Documents\GitHub\NobisSA\CapaDato\obj\Debug\CapaDato.dll
 C:\Users\FliaC\Documents\GitHub\NobisSA\CapaDato\obj\Debug\CapaDato.pdb
+C:\Users\FliaC\Documents\GitHub\NobisSA\CapaDato\obj\Debug\CapaDato.csprojAssemblyReference.cache

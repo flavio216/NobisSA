@@ -144,5 +144,15 @@ namespace CapaNegocio
             conex.Desconectar();
             return dt;
         }
+        public DataTable consultarTabla(string tabla)
+        {
+            AccesoDatos conex = new AccesoDatos();
+            DataTable dt = new DataTable();
+            conex.Conectar();
+            conex.comando.CommandText = "SELECT * FROM " + tabla + " ORDER BY 2";
+            dt.Load(conex.comando.ExecuteReader());
+            conex.Desconectar();
+            return dt;
+        }
     }
 }

@@ -40,6 +40,8 @@ namespace NobisSA
             this.lblSucursal = new System.Windows.Forms.Label();
             this.lstSucursales = new System.Windows.Forms.ListBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -157,10 +159,10 @@ namespace NobisSA
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(26, 84);
+            this.txtNombre.Location = new System.Drawing.Point(90, 84);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(199, 20);
+            this.txtNombre.Size = new System.Drawing.Size(198, 20);
             this.txtNombre.TabIndex = 31;
             // 
             // lblSucursal
@@ -186,11 +188,35 @@ namespace NobisSA
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(26, 44);
+            this.txtCodigo.Location = new System.Drawing.Point(90, 44);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(199, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(88, 20);
             this.txtCodigo.TabIndex = 75;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(44, 46);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 16);
+            this.label1.TabIndex = 76;
+            this.label1.Text = "CP:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(11, 86);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 16);
+            this.label2.TabIndex = 77;
+            this.label2.Text = "Sucursal:";
             // 
             // frmSucursales
             // 
@@ -198,6 +224,8 @@ namespace NobisSA
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lstSucursales);
             this.Controls.Add(this.btnCancelar);
@@ -228,5 +256,7 @@ namespace NobisSA
         private System.Windows.Forms.Label lblSucursal;
         private System.Windows.Forms.ListBox lstSucursales;
         private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

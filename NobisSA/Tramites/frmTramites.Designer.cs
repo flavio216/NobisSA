@@ -31,31 +31,29 @@ namespace NobisSA
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTramites));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dtgCliente = new System.Windows.Forms.DataGridView();
-            this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.lblCantidad = new System.Windows.Forms.Label();
-            this.btnImprimir = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.PictureBox();
-            this.lblApellidoBuscar = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtEstado = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.txtNroTramite = new System.Windows.Forms.TextBox();
+            this.cmbTipoPago = new System.Windows.Forms.ComboBox();
+            this.btnRechazado = new System.Windows.Forms.Button();
+            this.btnAutorizar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cmbTipoTramite = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.cmbAgente = new System.Windows.Forms.ComboBox();
             this.cmbSucursal = new System.Windows.Forms.ComboBox();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnRechazado = new System.Windows.Forms.Button();
-            this.btnAutorizado = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pbAgentes = new System.Windows.Forms.PictureBox();
+            this.txtObservacion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaAuditado = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.dtpFechaActual = new System.Windows.Forms.DateTimePicker();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblLocalidad = new System.Windows.Forms.Label();
-            this.cmbLocalidad = new System.Windows.Forms.ComboBox();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.Documento = new System.Windows.Forms.Label();
             this.txtDocumento = new System.Windows.Forms.TextBox();
@@ -64,19 +62,28 @@ namespace NobisSA
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCodigoText = new System.Windows.Forms.Label();
-            this.pbLocalidad = new System.Windows.Forms.PictureBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.pbSucursal = new System.Windows.Forms.PictureBox();
+            this.btnBorrar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnCargar = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtBuscarTramite = new System.Windows.Forms.TextBox();
+            this.chkEliminar = new System.Windows.Forms.CheckBox();
+            this.dtgTramite = new System.Windows.Forms.DataGridView();
+            this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lblCantidaddeRegistros = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.PictureBox();
+            this.lblApellidoBuscar = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgCliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLocalidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAgentes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSucursal)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgTramite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -90,134 +97,31 @@ namespace NobisSA
             this.tabControl1.Size = new System.Drawing.Size(1186, 541);
             this.tabControl1.TabIndex = 1;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.tabPage1.Controls.Add(this.comboBox2);
-            this.tabPage1.Controls.Add(this.dtgCliente);
-            this.tabPage1.Controls.Add(this.lblCantidad);
-            this.tabPage1.Controls.Add(this.btnImprimir);
-            this.tabPage1.Controls.Add(this.btnBuscar);
-            this.tabPage1.Controls.Add(this.lblApellidoBuscar);
-            this.tabPage1.ForeColor = System.Drawing.Color.Black;
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(1178, 515);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Buscar cliente";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(89, 48);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(189, 21);
-            this.comboBox2.TabIndex = 16;
-            // 
-            // dtgCliente
-            // 
-            this.dtgCliente.AllowUserToAddRows = false;
-            this.dtgCliente.AllowUserToDeleteRows = false;
-            this.dtgCliente.AllowUserToOrderColumns = true;
-            this.dtgCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgCliente.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dtgCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Eliminar});
-            this.dtgCliente.GridColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dtgCliente.Location = new System.Drawing.Point(14, 123);
-            this.dtgCliente.Margin = new System.Windows.Forms.Padding(2);
-            this.dtgCliente.MultiSelect = false;
-            this.dtgCliente.Name = "dtgCliente";
-            this.dtgCliente.ReadOnly = true;
-            this.dtgCliente.RowHeadersWidth = 51;
-            this.dtgCliente.RowTemplate.Height = 24;
-            this.dtgCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgCliente.Size = new System.Drawing.Size(1154, 355);
-            this.dtgCliente.TabIndex = 15;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.MinimumWidth = 6;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 125;
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.lblCantidad.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.lblCantidad.Location = new System.Drawing.Point(389, 75);
-            this.lblCantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(179, 17);
-            this.lblCantidad.TabIndex = 14;
-            this.lblCantidad.Text = "Cantidad de Registros: ";
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImprimir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnImprimir.Location = new System.Drawing.Point(489, 27);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(2);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(88, 38);
-            this.btnImprimir.TabIndex = 12;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(282, 39);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(38, 32);
-            this.btnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnBuscar.TabIndex = 10;
-            this.btnBuscar.TabStop = false;
-            // 
-            // lblApellidoBuscar
-            // 
-            this.lblApellidoBuscar.AutoSize = true;
-            this.lblApellidoBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.lblApellidoBuscar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.lblApellidoBuscar.Location = new System.Drawing.Point(17, 48);
-            this.lblApellidoBuscar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblApellidoBuscar.Name = "lblApellidoBuscar";
-            this.lblApellidoBuscar.Size = new System.Drawing.Size(68, 17);
-            this.lblApellidoBuscar.TabIndex = 8;
-            this.lblApellidoBuscar.Text = "Tramite:";
-            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.tabPage2.Controls.Add(this.txtEstado);
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.btnEditar);
+            this.tabPage2.Controls.Add(this.txtNroTramite);
+            this.tabPage2.Controls.Add(this.cmbTipoPago);
+            this.tabPage2.Controls.Add(this.btnRechazado);
+            this.tabPage2.Controls.Add(this.btnAutorizar);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.cmbTipoTramite);
+            this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.cmbAgente);
             this.tabPage2.Controls.Add(this.cmbSucursal);
-            this.tabPage2.Controls.Add(this.btnModificar);
-            this.tabPage2.Controls.Add(this.btnRechazado);
-            this.tabPage2.Controls.Add(this.btnAutorizado);
-            this.tabPage2.Controls.Add(this.pictureBox1);
-            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.pbAgentes);
+            this.tabPage2.Controls.Add(this.txtObservacion);
             this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.dateTimePicker2);
+            this.tabPage2.Controls.Add(this.dtpFechaAuditado);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.dateTimePicker1);
-            this.tabPage2.Controls.Add(this.txtTelefono);
+            this.tabPage2.Controls.Add(this.dtpFechaActual);
+            this.tabPage2.Controls.Add(this.txtDescripcion);
             this.tabPage2.Controls.Add(this.lblTelefono);
             this.tabPage2.Controls.Add(this.lblLocalidad);
-            this.tabPage2.Controls.Add(this.cmbLocalidad);
             this.tabPage2.Controls.Add(this.lblDireccion);
             this.tabPage2.Controls.Add(this.Documento);
             this.tabPage2.Controls.Add(this.txtDocumento);
@@ -226,8 +130,8 @@ namespace NobisSA
             this.tabPage2.Controls.Add(this.txtNombre);
             this.tabPage2.Controls.Add(this.lblNombre);
             this.tabPage2.Controls.Add(this.lblCodigoText);
-            this.tabPage2.Controls.Add(this.pbLocalidad);
-            this.tabPage2.Controls.Add(this.btnCancelar);
+            this.tabPage2.Controls.Add(this.pbSucursal);
+            this.tabPage2.Controls.Add(this.btnBorrar);
             this.tabPage2.Controls.Add(this.btnSalir);
             this.tabPage2.Controls.Add(this.btnNuevo);
             this.tabPage2.Controls.Add(this.btnVolver);
@@ -238,7 +142,134 @@ namespace NobisSA
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(1178, 515);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Cargar cliente";
+            this.tabPage2.Text = "Cargar Tramite";
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // txtEstado
+            // 
+            this.txtEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtEstado.Location = new System.Drawing.Point(950, 141);
+            this.txtEstado.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(209, 20);
+            this.txtEstado.TabIndex = 116;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(437, 408);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 88);
+            this.button2.TabIndex = 115;
+            this.button2.Text = "Cancelar";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEditar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.Location = new System.Drawing.Point(155, 414);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(65, 82);
+            this.btnEditar.TabIndex = 114;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // txtNroTramite
+            // 
+            this.txtNroTramite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtNroTramite.Location = new System.Drawing.Point(142, 24);
+            this.txtNroTramite.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNroTramite.Name = "txtNroTramite";
+            this.txtNroTramite.Size = new System.Drawing.Size(209, 20);
+            this.txtNroTramite.TabIndex = 113;
+            // 
+            // cmbTipoPago
+            // 
+            this.cmbTipoPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbTipoPago.FormattingEnabled = true;
+            this.cmbTipoPago.Location = new System.Drawing.Point(143, 289);
+            this.cmbTipoPago.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbTipoPago.Name = "cmbTipoPago";
+            this.cmbTipoPago.Size = new System.Drawing.Size(209, 21);
+            this.cmbTipoPago.TabIndex = 112;
+            // 
+            // btnRechazado
+            // 
+            this.btnRechazado.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.btnRechazado.Image = ((System.Drawing.Image)(resources.GetObject("btnRechazado.Image")));
+            this.btnRechazado.Location = new System.Drawing.Point(489, 322);
+            this.btnRechazado.Name = "btnRechazado";
+            this.btnRechazado.Size = new System.Drawing.Size(174, 47);
+            this.btnRechazado.TabIndex = 111;
+            this.btnRechazado.Text = "Rechazar";
+            this.btnRechazado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRechazado.UseVisualStyleBackColor = true;
+            this.btnRechazado.Click += new System.EventHandler(this.btnRechazado_Click);
+            // 
+            // btnAutorizar
+            // 
+            this.btnAutorizar.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.btnAutorizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAutorizar.Image")));
+            this.btnAutorizar.Location = new System.Drawing.Point(489, 322);
+            this.btnAutorizar.Name = "btnAutorizar";
+            this.btnAutorizar.Size = new System.Drawing.Size(174, 47);
+            this.btnAutorizar.TabIndex = 110;
+            this.btnAutorizar.Text = "Autorizado";
+            this.btnAutorizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAutorizar.UseVisualStyleBackColor = true;
+            this.btnAutorizar.Click += new System.EventHandler(this.btnAutorizar_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(647, 408);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(157, 66);
+            this.button1.TabIndex = 109;
+            this.button1.Text = "Descargar PDF";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // cmbTipoTramite
+            // 
+            this.cmbTipoTramite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbTipoTramite.FormattingEnabled = true;
+            this.cmbTipoTramite.Location = new System.Drawing.Point(143, 228);
+            this.cmbTipoTramite.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbTipoTramite.Name = "cmbTipoTramite";
+            this.cmbTipoTramite.Size = new System.Drawing.Size(209, 21);
+            this.cmbTipoTramite.TabIndex = 108;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(26, 233);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 16);
+            this.label2.TabIndex = 107;
+            this.label2.Text = "Tipo tramite:";
             // 
             // cmbAgente
             // 
@@ -250,6 +281,7 @@ namespace NobisSA
             this.cmbAgente.Name = "cmbAgente";
             this.cmbAgente.Size = new System.Drawing.Size(209, 21);
             this.cmbAgente.TabIndex = 106;
+            this.cmbAgente.SelectedIndexChanged += new System.EventHandler(this.cmbAgente_SelectedIndexChanged);
             // 
             // cmbSucursal
             // 
@@ -263,64 +295,28 @@ namespace NobisSA
             this.cmbSucursal.TabIndex = 105;
             this.cmbSucursal.SelectedIndexChanged += new System.EventHandler(this.cmbSucursal_SelectedIndexChanged);
             // 
-            // btnModificar
+            // pbAgentes
             // 
-            this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Imprint MT Shadow", 13.5F, System.Drawing.FontStyle.Bold);
-            this.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
-            this.btnModificar.Location = new System.Drawing.Point(312, 411);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(113, 93);
-            this.btnModificar.TabIndex = 104;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnModificar.UseVisualStyleBackColor = true;
-            // 
-            // btnRechazado
-            // 
-            this.btnRechazado.Location = new System.Drawing.Point(628, 343);
-            this.btnRechazado.Name = "btnRechazado";
-            this.btnRechazado.Size = new System.Drawing.Size(157, 66);
-            this.btnRechazado.TabIndex = 103;
-            this.btnRechazado.Text = "RECHAZADO";
-            this.btnRechazado.UseVisualStyleBackColor = true;
-            // 
-            // btnAutorizado
-            // 
-            this.btnAutorizado.Location = new System.Drawing.Point(448, 343);
-            this.btnAutorizado.Name = "btnAutorizado";
-            this.btnAutorizado.Size = new System.Drawing.Size(157, 66);
-            this.btnAutorizado.TabIndex = 102;
-            this.btnAutorizado.Text = "AUTORIZADO";
-            this.btnAutorizado.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pbAgentes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(743, 136);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(57, 59);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 101;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pbAgentes.Image = ((System.Drawing.Image)(resources.GetObject("pbAgentes.Image")));
+            this.pbAgentes.Location = new System.Drawing.Point(743, 136);
+            this.pbAgentes.Margin = new System.Windows.Forms.Padding(2);
+            this.pbAgentes.Name = "pbAgentes";
+            this.pbAgentes.Size = new System.Drawing.Size(57, 59);
+            this.pbAgentes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAgentes.TabIndex = 101;
+            this.pbAgentes.TabStop = false;
+            this.pbAgentes.Click += new System.EventHandler(this.pbAgentes_Click);
             // 
-            // textBox2
+            // txtObservacion
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.textBox2.Location = new System.Drawing.Point(530, 285);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(209, 20);
-            this.textBox2.TabIndex = 99;
+            this.txtObservacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtObservacion.Location = new System.Drawing.Point(530, 285);
+            this.txtObservacion.Margin = new System.Windows.Forms.Padding(2);
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(210, 20);
+            this.txtObservacion.TabIndex = 99;
             // 
             // label4
             // 
@@ -335,12 +331,12 @@ namespace NobisSA
             this.label4.TabIndex = 100;
             this.label4.Text = "Observacion:";
             // 
-            // dateTimePicker2
+            // dtpFechaAuditado
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(528, 225);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(220, 20);
-            this.dateTimePicker2.TabIndex = 98;
+            this.dtpFechaAuditado.Location = new System.Drawing.Point(528, 225);
+            this.dtpFechaAuditado.Name = "dtpFechaAuditado";
+            this.dtpFechaAuditado.Size = new System.Drawing.Size(212, 20);
+            this.dtpFechaAuditado.TabIndex = 98;
             // 
             // label3
             // 
@@ -368,21 +364,21 @@ namespace NobisSA
             this.label1.TabIndex = 93;
             this.label1.Text = "Agente:";
             // 
-            // dateTimePicker1
+            // dtpFechaActual
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(585, 21);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 91;
+            this.dtpFechaActual.Location = new System.Drawing.Point(585, 21);
+            this.dtpFechaActual.Name = "dtpFechaActual";
+            this.dtpFechaActual.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaActual.TabIndex = 91;
             // 
-            // txtTelefono
+            // txtDescripcion
             // 
-            this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtTelefono.Location = new System.Drawing.Point(143, 269);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(209, 20);
-            this.txtTelefono.TabIndex = 9;
+            this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtDescripcion.Location = new System.Drawing.Point(142, 331);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(209, 20);
+            this.txtDescripcion.TabIndex = 9;
             // 
             // lblTelefono
             // 
@@ -390,7 +386,7 @@ namespace NobisSA
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblTelefono.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblTelefono.Location = new System.Drawing.Point(66, 271);
+            this.lblTelefono.Location = new System.Drawing.Point(56, 333);
             this.lblTelefono.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(67, 16);
@@ -410,24 +406,13 @@ namespace NobisSA
             this.lblLocalidad.TabIndex = 85;
             this.lblLocalidad.Text = "Sucursal:";
             // 
-            // cmbLocalidad
-            // 
-            this.cmbLocalidad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbLocalidad.FormattingEnabled = true;
-            this.cmbLocalidad.Location = new System.Drawing.Point(144, 222);
-            this.cmbLocalidad.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbLocalidad.Name = "cmbLocalidad";
-            this.cmbLocalidad.Size = new System.Drawing.Size(209, 21);
-            this.cmbLocalidad.TabIndex = 10;
-            // 
             // lblDireccion
             // 
             this.lblDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblDireccion.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblDireccion.Location = new System.Drawing.Point(17, 227);
+            this.lblDireccion.Location = new System.Drawing.Point(10, 289);
             this.lblDireccion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(116, 16);
@@ -455,6 +440,7 @@ namespace NobisSA
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(209, 20);
             this.txtDocumento.TabIndex = 5;
+            this.txtDocumento.TextChanged += new System.EventHandler(this.txtDocumento_TextChanged);
             // 
             // txtApellido
             // 
@@ -471,7 +457,7 @@ namespace NobisSA
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblApellido.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblApellido.Location = new System.Drawing.Point(50, 179);
+            this.lblApellido.Location = new System.Drawing.Point(56, 179);
             this.lblApellido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(76, 16);
@@ -513,37 +499,38 @@ namespace NobisSA
             this.lblCodigoText.TabIndex = 54;
             this.lblCodigoText.Text = "Fecha";
             // 
-            // pbLocalidad
+            // pbSucursal
             // 
-            this.pbLocalidad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pbSucursal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbLocalidad.Image = ((System.Drawing.Image)(resources.GetObject("pbLocalidad.Image")));
-            this.pbLocalidad.Location = new System.Drawing.Point(743, 78);
-            this.pbLocalidad.Margin = new System.Windows.Forms.Padding(2);
-            this.pbLocalidad.Name = "pbLocalidad";
-            this.pbLocalidad.Size = new System.Drawing.Size(57, 59);
-            this.pbLocalidad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLocalidad.TabIndex = 86;
-            this.pbLocalidad.TabStop = false;
-            this.pbLocalidad.Click += new System.EventHandler(this.pbLocalidad_Click);
+            this.pbSucursal.Image = ((System.Drawing.Image)(resources.GetObject("pbSucursal.Image")));
+            this.pbSucursal.Location = new System.Drawing.Point(743, 78);
+            this.pbSucursal.Margin = new System.Windows.Forms.Padding(2);
+            this.pbSucursal.Name = "pbSucursal";
+            this.pbSucursal.Size = new System.Drawing.Size(57, 59);
+            this.pbSucursal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSucursal.TabIndex = 86;
+            this.pbSucursal.TabStop = false;
+            this.pbSucursal.Click += new System.EventHandler(this.pbSucursal_Click);
             // 
-            // btnCancelar
+            // btnBorrar
             // 
-            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(441, 425);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(93, 80);
-            this.btnCancelar.TabIndex = 67;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnBorrar.FlatAppearance.BorderSize = 0;
+            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrar.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
+            this.btnBorrar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnBorrar.Image = ((System.Drawing.Image)(resources.GetObject("btnBorrar.Image")));
+            this.btnBorrar.Location = new System.Drawing.Point(328, 408);
+            this.btnBorrar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(105, 88);
+            this.btnBorrar.TabIndex = 67;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnSalir
             // 
@@ -553,7 +540,7 @@ namespace NobisSA
             this.btnSalir.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-            this.btnSalir.Location = new System.Drawing.Point(549, 414);
+            this.btnSalir.Location = new System.Drawing.Point(531, 408);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(93, 80);
@@ -571,7 +558,7 @@ namespace NobisSA
             this.btnNuevo.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
-            this.btnNuevo.Location = new System.Drawing.Point(62, 425);
+            this.btnNuevo.Location = new System.Drawing.Point(49, 414);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(93, 80);
@@ -580,6 +567,7 @@ namespace NobisSA
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnVolver
             // 
@@ -605,33 +593,161 @@ namespace NobisSA
             this.btnCargar.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
             this.btnCargar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCargar.Image = ((System.Drawing.Image)(resources.GetObject("btnCargar.Image")));
-            this.btnCargar.Location = new System.Drawing.Point(200, 425);
+            this.btnCargar.Location = new System.Drawing.Point(240, 408);
             this.btnCargar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(93, 80);
+            this.btnCargar.Size = new System.Drawing.Size(97, 88);
             this.btnCargar.TabIndex = 60;
             this.btnCargar.Text = "Cargar";
             this.btnCargar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.tabPage1.Controls.Add(this.txtBuscarTramite);
+            this.tabPage1.Controls.Add(this.chkEliminar);
+            this.tabPage1.Controls.Add(this.dtgTramite);
+            this.tabPage1.Controls.Add(this.lblCantidaddeRegistros);
+            this.tabPage1.Controls.Add(this.btnEliminar);
+            this.tabPage1.Controls.Add(this.btnBuscar);
+            this.tabPage1.Controls.Add(this.lblApellidoBuscar);
+            this.tabPage1.ForeColor = System.Drawing.Color.Black;
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(1178, 515);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Buscar Tramite";
+            // 
+            // txtBuscarTramite
+            // 
+            this.txtBuscarTramite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtBuscarTramite.Location = new System.Drawing.Point(91, 51);
+            this.txtBuscarTramite.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBuscarTramite.Name = "txtBuscarTramite";
+            this.txtBuscarTramite.Size = new System.Drawing.Size(209, 20);
+            this.txtBuscarTramite.TabIndex = 18;
+            this.txtBuscarTramite.TextChanged += new System.EventHandler(this.txtBuscarTramite_TextChanged);
+            // 
+            // chkEliminar
+            // 
+            this.chkEliminar.AutoSize = true;
+            this.chkEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
+            this.chkEliminar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.chkEliminar.Location = new System.Drawing.Point(20, 98);
+            this.chkEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.chkEliminar.Name = "chkEliminar";
+            this.chkEliminar.Size = new System.Drawing.Size(85, 21);
+            this.chkEliminar.TabIndex = 17;
+            this.chkEliminar.Text = "Eliminar";
+            this.chkEliminar.UseVisualStyleBackColor = true;
+            this.chkEliminar.CheckedChanged += new System.EventHandler(this.chkEliminar_CheckedChanged);
+            // 
+            // dtgTramite
+            // 
+            this.dtgTramite.AllowUserToAddRows = false;
+            this.dtgTramite.AllowUserToDeleteRows = false;
+            this.dtgTramite.AllowUserToOrderColumns = true;
+            this.dtgTramite.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgTramite.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dtgTramite.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgTramite.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Eliminar});
+            this.dtgTramite.GridColor = System.Drawing.SystemColors.ButtonShadow;
+            this.dtgTramite.Location = new System.Drawing.Point(14, 123);
+            this.dtgTramite.Margin = new System.Windows.Forms.Padding(2);
+            this.dtgTramite.MultiSelect = false;
+            this.dtgTramite.Name = "dtgTramite";
+            this.dtgTramite.ReadOnly = true;
+            this.dtgTramite.RowHeadersWidth = 51;
+            this.dtgTramite.RowTemplate.Height = 24;
+            this.dtgTramite.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgTramite.Size = new System.Drawing.Size(839, 355);
+            this.dtgTramite.TabIndex = 15;
+            this.dtgTramite.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgTramite_CellContentClick);
+            this.dtgTramite.DoubleClick += new System.EventHandler(this.dtgTramite_DoubleClick);
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.MinimumWidth = 6;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 125;
+            // 
+            // lblCantidaddeRegistros
+            // 
+            this.lblCantidaddeRegistros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCantidaddeRegistros.AutoSize = true;
+            this.lblCantidaddeRegistros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
+            this.lblCantidaddeRegistros.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lblCantidaddeRegistros.Location = new System.Drawing.Point(14, 496);
+            this.lblCantidaddeRegistros.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCantidaddeRegistros.Name = "lblCantidaddeRegistros";
+            this.lblCantidaddeRegistros.Size = new System.Drawing.Size(179, 17);
+            this.lblCantidaddeRegistros.TabIndex = 14;
+            this.lblCantidaddeRegistros.Text = "Cantidad de Registros: ";
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnEliminar.Location = new System.Drawing.Point(659, 27);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(88, 38);
+            this.btnEliminar.TabIndex = 12;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(282, 39);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(38, 32);
+            this.btnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnBuscar.TabIndex = 10;
+            this.btnBuscar.TabStop = false;
+            // 
+            // lblApellidoBuscar
+            // 
+            this.lblApellidoBuscar.AutoSize = true;
+            this.lblApellidoBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
+            this.lblApellidoBuscar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lblApellidoBuscar.Location = new System.Drawing.Point(17, 48);
+            this.lblApellidoBuscar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblApellidoBuscar.Name = "lblApellidoBuscar";
+            this.lblApellidoBuscar.Size = new System.Drawing.Size(68, 17);
+            this.lblApellidoBuscar.TabIndex = 8;
+            this.lblApellidoBuscar.Text = "Tramite:";
             // 
             // frmTramites
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 578);
+            this.ClientSize = new System.Drawing.Size(955, 578);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmTramites";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmTramites_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgCliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLocalidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAgentes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSucursal)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgTramite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBuscar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -640,17 +756,16 @@ namespace NobisSA
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DataGridView dtgCliente;
+        private System.Windows.Forms.DataGridView dtgTramite;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
-        private System.Windows.Forms.Label lblCantidad;
-        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Label lblCantidaddeRegistros;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.PictureBox btnBuscar;
         private System.Windows.Forms.Label lblApellidoBuscar;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Label lblLocalidad;
-        private System.Windows.Forms.ComboBox cmbLocalidad;
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.Label Documento;
         private System.Windows.Forms.TextBox txtDocumento;
@@ -659,25 +774,33 @@ namespace NobisSA
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblCodigoText;
-        private System.Windows.Forms.PictureBox pbLocalidad;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.PictureBox pbSucursal;
+        private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnCargar;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.PictureBox pbAgentes;
+        private System.Windows.Forms.TextBox txtObservacion;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpFechaAuditado;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnRechazado;
-        private System.Windows.Forms.Button btnAutorizado;
+        private System.Windows.Forms.DateTimePicker dtpFechaActual;
         private System.Windows.Forms.ComboBox cmbAgente;
         private System.Windows.Forms.ComboBox cmbSucursal;
+        private System.Windows.Forms.ComboBox cmbTipoTramite;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRechazado;
+        private System.Windows.Forms.Button btnAutorizar;
+        private System.Windows.Forms.CheckBox chkEliminar;
+        private System.Windows.Forms.TextBox txtBuscarTramite;
+        private System.Windows.Forms.ComboBox cmbTipoPago;
+        private System.Windows.Forms.TextBox txtNroTramite;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtEstado;
     }
 }
 

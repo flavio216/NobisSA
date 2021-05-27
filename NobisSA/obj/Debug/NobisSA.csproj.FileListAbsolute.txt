@@ -26,3 +26,5 @@ C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.exe
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.pdb
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.Tramites.frmAgentes.resources
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.frmPrincipal.resources
+C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.frmLogin.resources
+C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.Afiliados.frmAfiliados.resources

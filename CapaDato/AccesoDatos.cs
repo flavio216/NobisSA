@@ -68,7 +68,23 @@ namespace CapaDato
             Desconectar();
             return dt;
         }
-
+        public DataTable buscarTabla(string sql)
+        {
+            AccesoDatos conex = new AccesoDatos();
+            DataTable dt = new DataTable();
+            conex.Conectar();
+            conex.comando.CommandText = sql;
+            dt.Load(conex.comando.ExecuteReader());
+            conex.Desconectar();
+            return dt;
+        }
+        public void actualizarBD(string sql)
+        {
+            Conectar();
+            comando.CommandText = sql;
+            comando.ExecuteNonQuery();
+            Desconectar();
+        }
     }
 }
 
