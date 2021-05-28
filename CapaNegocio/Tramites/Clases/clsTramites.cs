@@ -16,8 +16,10 @@ namespace CapaNegocio
         private string descripcion;
         private int idagente;
         private bool estado;
+        private byte[] pdf;
+        private string url;
 
-        public clsTramites(int id, int idTipoTramite, DateTime fecha, int dni, int idTipoPago, string descripcion, int idagente, bool estado)
+        public clsTramites(int id, int idTipoTramite, DateTime fecha, int dni, int idTipoPago, string descripcion, int idagente, bool estado, byte[] pdf, string url)
         {
             this.id = id;
             this.idTipoTramite = idTipoTramite;
@@ -27,6 +29,20 @@ namespace CapaNegocio
             this.descripcion = descripcion;
             this.idagente = idagente;
             this.estado = estado;
+            this.pdf = pdf;
+            this.url = url;
+        }
+        public clsTramites(int id, int idTipoTramite, DateTime fecha, int dni, int idTipoPago, string descripcion, int idagente, bool estado, string url)
+        {
+            this.id = id;
+            this.idTipoTramite = idTipoTramite;
+            this.fecha = fecha;
+            this.dni = dni;
+            this.idTipoPago = idTipoPago;
+            this.descripcion = descripcion;
+            this.idagente = idagente;
+            this.estado = estado;          
+            this.url = url;
         }
 
         public int pId { get => id; set => id = value; }
@@ -37,5 +53,7 @@ namespace CapaNegocio
         public string pDescripcion { get => descripcion; set => descripcion = value; }
         public int pIdagente { get => idagente; set => idagente = value; }
         public bool pEstado { get => estado; set => estado = value; }
+        public byte[] Pdf { get => pdf; set => pdf = value; }
+        public string pUrl { get => url; set => url = value; }
     }
 }

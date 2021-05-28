@@ -34,5 +34,10 @@ namespace NobisSA
         {
             abrirFormHijo(new frmTramites(), panelFormHijo);
         }
+
+        private void btnAFiliados_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new frmAfiliados(), panelFormHijo);
+        }
     }
 }

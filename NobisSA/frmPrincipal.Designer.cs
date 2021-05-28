@@ -31,12 +31,12 @@ namespace NobisSA
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelFormHijo = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.btnTramites = new System.Windows.Forms.Button();
             this.btnAFiliados = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
+            this.panelFormHijo = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.SuspendLayout();
@@ -54,15 +54,6 @@ namespace NobisSA
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 554);
             this.panel1.TabIndex = 0;
-            // 
-            // panelFormHijo
-            // 
-            this.panelFormHijo.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panelFormHijo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFormHijo.Location = new System.Drawing.Point(200, 0);
-            this.panelFormHijo.Name = "panelFormHijo";
-            this.panelFormHijo.Size = new System.Drawing.Size(915, 554);
-            this.panelFormHijo.TabIndex = 1;
             // 
             // btnSalir
             // 
@@ -127,6 +118,7 @@ namespace NobisSA
             this.btnAFiliados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAFiliados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAFiliados.UseVisualStyleBackColor = true;
+            this.btnAFiliados.Click += new System.EventHandler(this.btnAFiliados_Click);
             // 
             // btnInventario
             // 
@@ -145,6 +137,15 @@ namespace NobisSA
             this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInventario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInventario.UseVisualStyleBackColor = true;
+            // 
+            // panelFormHijo
+            // 
+            this.panelFormHijo.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelFormHijo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFormHijo.Location = new System.Drawing.Point(200, 0);
+            this.panelFormHijo.Name = "panelFormHijo";
+            this.panelFormHijo.Size = new System.Drawing.Size(915, 554);
+            this.panelFormHijo.TabIndex = 1;
             // 
             // frmPrincipal
             // 

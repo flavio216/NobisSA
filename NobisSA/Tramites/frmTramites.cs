@@ -5,7 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +24,13 @@ namespace NobisSA
             InitializeComponent();
 
             //Permisos
-            pbSucursal.Enabled = clsLogin.reg_sucursales;
-            pbAgentes.Enabled = clsLogin.reg_sucursales;
+          /*  pbSucursal.Enabled = clsLogin.reg_sucursales;
+            pbAgentes.Enabled = clsLogin.reg_sucursales;*/
+
             RellenarDTGtramites();
+            Habilitar(false);
             btnAutorizar.Visible = false;
-            btnRechazado.Visible = false;
+            btnRechazar.Visible = false;
             dtgTramite.Columns[0].Visible = false;
             cargarCombo(cmbTipoPago, "tipopagos");
             cargarCombo(cmbTipoTramite, "tipotramites");
@@ -93,13 +97,22 @@ namespace NobisSA
             string descripcion = txtDescripcion.Text;
             int idagente = Convert.ToInt32(cmbAgente.SelectedValue);
             DateTime fecha = dtpFechaActual.Value;
-            
-            clsTramites tramite = new clsTramites(0, tipoTramite, fecha, dni, idtipopago, descripcion, idagente, true );
-           // clsTramites tramite2 = new clsTramites(nrotramite, tipoTramite, fecha, dni, idtipopago, descripcion, idagente);
+            string url = txtPdf.Text;
+            byte[] file = null;
             bdTramites gestor = new bdTramites();
             if (nuevo)
             {
+                Stream myStream = OFDpdf.OpenFile();
+                using (MemoryStream ms = new MemoryStream())
 
+                {
+                    myStream.CopyTo(ms);
+                    file = ms.ToArray();
+                }
+
+                clsTramites tramite = new clsTramites(0, tipoTramite, fecha, dni, idtipopago, descripcion, idagente, true, file, url);
+
+                
                 bool resultado = gestor.InsertarTramite(tramite);
 
                     if (resultado)
@@ -108,6 +121,7 @@ namespace NobisSA
                         lblCantidaddeRegistros.Text = "Cantidad de registros:" + dtgTramite.Rows.Count.ToString();
                         RellenarDTGtramites();
                         LimpiarAfiliado();
+                        Habilitar(false);
                         tabControl1.SelectedIndex = 1;
 
                 }
@@ -122,13 +136,14 @@ namespace NobisSA
           else
             {
                 int nrotramite = int.Parse(txtNroTramite.Text);
-                clsTramites tramite2 = new clsTramites(nrotramite, tipoTramite, fecha, dni, idtipopago, descripcion, idagente,Convert.ToBoolean(txtEstado.Text));
+                clsTramites tramite2 = new clsTramites(nrotramite, tipoTramite, fecha, dni, idtipopago, descripcion, idagente,Convert.ToBoolean(txtEstado.Text), url);
                 bool resultado2 = gestor.EditarTramite(tramite2);
                 if (resultado2)
                 {
                     MessageBox.Show("El agente se ha editado con exito.", "Editar agente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     RellenarDTGtramites();
                     LimpiarAfiliado();
+                    Habilitar(false);
                     tabControl1.SelectedIndex = 1;
                 }
                 else
@@ -159,7 +174,7 @@ namespace NobisSA
             {
                 codigo = int.Parse(txtDocumento.Text);
                 string sql = "SELECT nombre, apellido FROM afiliados WHERE dni = " + codigo;
-                buscarProducto(sql);
+                buscarDocumento(sql);
             }
             catch (Exception)
             {
@@ -183,7 +198,7 @@ namespace NobisSA
             dtpFechaActual.Value = DateTime.Today;
             dtpFechaAuditado.Value = DateTime.Today;
         }
-        private void buscarProducto(string sql)
+        private void buscarDocumento(string sql)
         {
             DataTable dt = new DataTable();
             AccesoDatos bd = new AccesoDatos();
@@ -229,7 +244,6 @@ namespace NobisSA
             else
             {
                 dtgTramite.Columns[0].Visible = false;
-
             }
         }
 
@@ -262,36 +276,9 @@ namespace NobisSA
         private void frmTramites_Load(object sender, EventArgs e)
         {
             cmbTipoPago.SelectedIndex = -1;
-            cmbTipoTramite.SelectedIndex = -1;
-            
+            cmbTipoTramite.SelectedIndex = -1;      
         }
 
-  
-
-       
-          private void btnAutorizar_Click(object sender, EventArgs e)
-          {
-              bdTramites gestor = new bdTramites();
-
-           gestor.CambiarEstado(true, int.Parse(txtNroTramite.Text), txtObservacion.Text, DateTime.Today);
-            btnAutorizar.Visible = false;
-            btnRechazado.Visible = true;
-            btnRechazado.Enabled = true;
-            RellenarDTGtramites();
-            tabControl1.SelectedIndex = 1;
-        }
-
-        private void btnRechazado_Click(object sender, EventArgs e)
-        {
-            bdTramites gestor = new bdTramites();
-
-            gestor.CambiarEstado(false, int.Parse(txtNroTramite.Text),txtObservacion.Text,DateTime.Today);
-            btnRechazado.Visible = false;
-            btnAutorizar.Visible = true;
-            btnAutorizar.Enabled = true;
-            RellenarDTGtramites();
-            tabControl1.SelectedIndex = 1;
-        }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -299,20 +286,16 @@ namespace NobisSA
         }
         private void Habilitar(bool x)
         {
-            txtDocumento.Enabled = x;
-            txtNombre.Enabled = x;
             btnCargar.Enabled = x;
             btnNuevo.Enabled = !x;
-            btnBorrar.Enabled = !x;
-            btnEditar.Enabled = !x;
-            btnNuevo.Enabled = !x;
-            btnBorrar.Enabled = x;
+            btnEditar.Enabled = x;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             nuevo = false;
-            Habilitar(true);
+            Habilitar(false);
+            btnCargar.Enabled = true;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -341,8 +324,8 @@ namespace NobisSA
             txtEstado.Text = Convert.ToString(dtgTramite.CurrentRow.Cells[12].Value);
             if (Convert.ToBoolean(txtEstado.Text))
             {
-                btnRechazado.Visible = true;
-                btnRechazado.Enabled = true;
+                btnRechazar.Visible = true;
+                btnRechazar.Enabled = true;
                 btnAutorizar.Visible = false;
                 btnAutorizar.Enabled = false;
 
@@ -350,27 +333,20 @@ namespace NobisSA
 
             if (!Convert.ToBoolean(txtEstado.Text))
             {
-                btnRechazado.Visible = false;
-                btnRechazado.Enabled = false;
+                btnRechazar.Visible = false;
+                btnRechazar.Enabled = false;
                 btnAutorizar.Enabled = true;
                 btnAutorizar.Visible = true;
 
             }
-
+            txtPdf.Text = Convert.ToString(dtgTramite.CurrentRow.Cells[13].Value);
             btnCargar.Enabled = false;
             cmbTipoPago.Enabled = true;
             tabControl1.SelectedIndex = 0;
+            Habilitar(true);
         }
 
-        private void txtBuscarTramite_TextChanged(object sender, EventArgs e)
-        {
-            string sql = @"select t.idtramite,tt.tramite,fecha, t.dni,af.nombre,af.apellido,formapago,descripcion,ag.agente,fechaauditado,observacion,estado from tramites t
-                            inner join tipotramites tt on t.idTipoTramite = tt.idTipoTramite
-                            inner join afiliados af on af.dni = t.dni
-                            inner join tipopagos tp on tp.idtipopago = t.idtipopago
-                            inner join agentes ag on ag.idagente = t.idagente WHERE t.dni LIKE '" + txtBuscarTramite.Text + "%' or tt.tramite LIKE '" + txtBuscarTramite.Text + "%'";
-            Buscar(sql, dtgTramite);
-        }
+        
         public void Buscar(string sql, DataGridView dtgv)
         {
             DataTable dt = new DataTable();
@@ -393,14 +369,76 @@ namespace NobisSA
             frm.Show();
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
+
+
+        private void btnBuscarPDF_Click(object sender, EventArgs e)
         {
+            OFDpdf.Filter = "Todos los archivos (*.*)|*.*";
+            OFDpdf.InitialDirectory = "c:\\";
+            OFDpdf.Title = "Seleccionar imagen para el producto.";
+            OFDpdf.FilterIndex = 1;
+            OFDpdf.RestoreDirectory = false;
+            if (OFDpdf.ShowDialog() == DialogResult.OK)
+            {
+                txtPdf.Text = OFDpdf.FileName;
+            }
+        }
+
+        private void btnAbrirPdf_Click(object sender, EventArgs e)
+        {
+
+            Process.Start(txtPdf.Text);
 
         }
 
-        private void btnBorrar_Click(object sender, EventArgs e)
+        private void txtDocumento_TextChanged_1(object sender, EventArgs e)
         {
+            int codigo;
+            try
+            {
+                codigo = int.Parse(txtDocumento.Text);
+                string sql = "SELECT nombre, apellido FROM afiliados WHERE dni = " + codigo;
+                buscarDocumento(sql);
+            }
+            catch (Exception)
+            {
+                LimpiarAfiliado();
 
+            }
+        }
+
+        private void txtBuscarTramite_TextChanged(object sender, EventArgs e)
+        {
+            string sql = @"select t.idtramite,tt.tramite,fecha, t.dni,af.nombre,af.apellido,formapago,descripcion,ag.agente,fechaauditado,observacion,estado from tramites t
+                            inner join tipotramites tt on t.idTipoTramite = tt.idTipoTramite
+                            inner join afiliados af on af.dni = t.dni
+                            inner join tipopagos tp on tp.idtipopago = t.idtipopago
+                            inner join agentes ag on ag.idagente = t.idagente WHERE t.dni LIKE '" + txtBuscarTramite.Text + "%' or tt.tramite LIKE '" + txtBuscarTramite.Text + "%'";
+            Buscar(sql, dtgTramite);
+        }
+
+        private void btnAutorizar_Click(object sender, EventArgs e)
+        {
+            bdTramites gestor = new bdTramites();
+
+            gestor.CambiarEstado(true, int.Parse(txtNroTramite.Text), txtObservacion.Text, DateTime.Today);
+            btnAutorizar.Visible = false;
+            btnRechazar.Visible = true;
+            btnRechazar.Enabled = true;
+            RellenarDTGtramites();
+            tabControl1.SelectedIndex = 1;
+        }
+
+        private void btnRechazar_Click(object sender, EventArgs e)
+        {
+            bdTramites gestor = new bdTramites();
+
+            gestor.CambiarEstado(false, int.Parse(txtNroTramite.Text), txtObservacion.Text, DateTime.Today);
+            btnRechazar.Visible = false;
+            btnAutorizar.Visible = true;
+            btnAutorizar.Enabled = true;
+            RellenarDTGtramites();
+            tabControl1.SelectedIndex = 1;
         }
     }
 }

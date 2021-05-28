@@ -32,14 +32,16 @@ namespace NobisSA
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTramites));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.txtEstado = new System.Windows.Forms.TextBox();
+            this.btnBuscarPDF = new System.Windows.Forms.Button();
+            this.btnAbrirPdf = new System.Windows.Forms.Button();
+            this.txtPdf = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnRechazar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.txtNroTramite = new System.Windows.Forms.TextBox();
             this.cmbTipoPago = new System.Windows.Forms.ComboBox();
-            this.btnRechazado = new System.Windows.Forms.Button();
             this.btnAutorizar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.cmbTipoTramite = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbAgente = new System.Windows.Forms.ComboBox();
@@ -63,11 +65,10 @@ namespace NobisSA
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCodigoText = new System.Windows.Forms.Label();
             this.pbSucursal = new System.Windows.Forms.PictureBox();
-            this.btnBorrar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.btnCargar = new System.Windows.Forms.Button();
+            this.txtEstado = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtBuscarTramite = new System.Windows.Forms.TextBox();
             this.chkEliminar = new System.Windows.Forms.CheckBox();
@@ -77,6 +78,7 @@ namespace NobisSA
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.PictureBox();
             this.lblApellidoBuscar = new System.Windows.Forms.Label();
+            this.OFDpdf = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAgentes)).BeginInit();
@@ -94,20 +96,22 @@ namespace NobisSA
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1186, 541);
+            this.tabControl1.Size = new System.Drawing.Size(884, 541);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.tabPage2.Controls.Add(this.txtEstado);
+            this.tabPage2.Controls.Add(this.btnBuscarPDF);
+            this.tabPage2.Controls.Add(this.btnAbrirPdf);
+            this.tabPage2.Controls.Add(this.txtPdf);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.btnRechazar);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.btnEditar);
             this.tabPage2.Controls.Add(this.txtNroTramite);
             this.tabPage2.Controls.Add(this.cmbTipoPago);
-            this.tabPage2.Controls.Add(this.btnRechazado);
             this.tabPage2.Controls.Add(this.btnAutorizar);
-            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.cmbTipoTramite);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.cmbAgente);
@@ -131,28 +135,71 @@ namespace NobisSA
             this.tabPage2.Controls.Add(this.lblNombre);
             this.tabPage2.Controls.Add(this.lblCodigoText);
             this.tabPage2.Controls.Add(this.pbSucursal);
-            this.tabPage2.Controls.Add(this.btnBorrar);
             this.tabPage2.Controls.Add(this.btnSalir);
             this.tabPage2.Controls.Add(this.btnNuevo);
-            this.tabPage2.Controls.Add(this.btnVolver);
             this.tabPage2.Controls.Add(this.btnCargar);
+            this.tabPage2.Controls.Add(this.txtEstado);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(1178, 515);
+            this.tabPage2.Size = new System.Drawing.Size(876, 515);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Cargar Tramite";
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // txtEstado
+            // btnBuscarPDF
             // 
-            this.txtEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtEstado.Location = new System.Drawing.Point(950, 141);
-            this.txtEstado.Margin = new System.Windows.Forms.Padding(2);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(209, 20);
-            this.txtEstado.TabIndex = 116;
+            this.btnBuscarPDF.Location = new System.Drawing.Point(779, 411);
+            this.btnBuscarPDF.Name = "btnBuscarPDF";
+            this.btnBuscarPDF.Size = new System.Drawing.Size(28, 21);
+            this.btnBuscarPDF.TabIndex = 194;
+            this.btnBuscarPDF.Text = "...";
+            this.btnBuscarPDF.UseVisualStyleBackColor = true;
+            // 
+            // btnAbrirPdf
+            // 
+            this.btnAbrirPdf.Location = new System.Drawing.Point(564, 447);
+            this.btnAbrirPdf.Name = "btnAbrirPdf";
+            this.btnAbrirPdf.Size = new System.Drawing.Size(243, 27);
+            this.btnAbrirPdf.TabIndex = 193;
+            this.btnAbrirPdf.Text = "Abrir PDF";
+            this.btnAbrirPdf.UseVisualStyleBackColor = true;
+            // 
+            // txtPdf
+            // 
+            this.txtPdf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtPdf.Location = new System.Drawing.Point(564, 411);
+            this.txtPdf.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPdf.Name = "txtPdf";
+            this.txtPdf.Size = new System.Drawing.Size(210, 20);
+            this.txtPdf.TabIndex = 192;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label5.Location = new System.Drawing.Point(41, 39);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 16);
+            this.label5.TabIndex = 191;
+            this.label5.Text = "Nro Tramite:";
+            // 
+            // btnRechazar
+            // 
+            this.btnRechazar.BackColor = System.Drawing.Color.Red;
+            this.btnRechazar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRechazar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRechazar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRechazar.Location = new System.Drawing.Point(564, 326);
+            this.btnRechazar.Name = "btnRechazar";
+            this.btnRechazar.Size = new System.Drawing.Size(190, 61);
+            this.btnRechazar.TabIndex = 190;
+            this.btnRechazar.Text = "RECHAZADO";
+            this.btnRechazar.UseVisualStyleBackColor = false;
+            this.btnRechazar.Click += new System.EventHandler(this.btnRechazar_Click);
             // 
             // button2
             // 
@@ -162,16 +209,15 @@ namespace NobisSA
             this.button2.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(437, 408);
+            this.button2.Location = new System.Drawing.Point(359, 401);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 88);
-            this.button2.TabIndex = 115;
+            this.button2.Size = new System.Drawing.Size(94, 94);
+            this.button2.TabIndex = 189;
             this.button2.Text = "Cancelar";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnEditar
             // 
@@ -181,82 +227,60 @@ namespace NobisSA
             this.btnEditar.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(155, 414);
+            this.btnEditar.Location = new System.Drawing.Point(154, 401);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(65, 82);
-            this.btnEditar.TabIndex = 114;
+            this.btnEditar.Size = new System.Drawing.Size(94, 94);
+            this.btnEditar.TabIndex = 188;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // txtNroTramite
             // 
             this.txtNroTramite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtNroTramite.Location = new System.Drawing.Point(142, 24);
+            this.txtNroTramite.Location = new System.Drawing.Point(150, 37);
             this.txtNroTramite.Margin = new System.Windows.Forms.Padding(2);
             this.txtNroTramite.Name = "txtNroTramite";
-            this.txtNroTramite.Size = new System.Drawing.Size(209, 20);
-            this.txtNroTramite.TabIndex = 113;
+            this.txtNroTramite.Size = new System.Drawing.Size(120, 20);
+            this.txtNroTramite.TabIndex = 187;
             // 
             // cmbTipoPago
             // 
             this.cmbTipoPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipoPago.FormattingEnabled = true;
-            this.cmbTipoPago.Location = new System.Drawing.Point(143, 289);
+            this.cmbTipoPago.Location = new System.Drawing.Point(150, 278);
             this.cmbTipoPago.Margin = new System.Windows.Forms.Padding(2);
             this.cmbTipoPago.Name = "cmbTipoPago";
             this.cmbTipoPago.Size = new System.Drawing.Size(209, 21);
-            this.cmbTipoPago.TabIndex = 112;
-            // 
-            // btnRechazado
-            // 
-            this.btnRechazado.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.btnRechazado.Image = ((System.Drawing.Image)(resources.GetObject("btnRechazado.Image")));
-            this.btnRechazado.Location = new System.Drawing.Point(489, 322);
-            this.btnRechazado.Name = "btnRechazado";
-            this.btnRechazado.Size = new System.Drawing.Size(174, 47);
-            this.btnRechazado.TabIndex = 111;
-            this.btnRechazado.Text = "Rechazar";
-            this.btnRechazado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRechazado.UseVisualStyleBackColor = true;
-            this.btnRechazado.Click += new System.EventHandler(this.btnRechazado_Click);
+            this.cmbTipoPago.TabIndex = 186;
             // 
             // btnAutorizar
             // 
-            this.btnAutorizar.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.btnAutorizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAutorizar.Image")));
-            this.btnAutorizar.Location = new System.Drawing.Point(489, 322);
+            this.btnAutorizar.BackColor = System.Drawing.Color.Lime;
+            this.btnAutorizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAutorizar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAutorizar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAutorizar.Location = new System.Drawing.Point(563, 326);
             this.btnAutorizar.Name = "btnAutorizar";
-            this.btnAutorizar.Size = new System.Drawing.Size(174, 47);
-            this.btnAutorizar.TabIndex = 110;
-            this.btnAutorizar.Text = "Autorizado";
-            this.btnAutorizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAutorizar.UseVisualStyleBackColor = true;
+            this.btnAutorizar.Size = new System.Drawing.Size(190, 61);
+            this.btnAutorizar.TabIndex = 185;
+            this.btnAutorizar.Text = "AUTORIZADO";
+            this.btnAutorizar.UseVisualStyleBackColor = false;
             this.btnAutorizar.Click += new System.EventHandler(this.btnAutorizar_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(647, 408);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 66);
-            this.button1.TabIndex = 109;
-            this.button1.Text = "Descargar PDF";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // cmbTipoTramite
             // 
             this.cmbTipoTramite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipoTramite.FormattingEnabled = true;
-            this.cmbTipoTramite.Location = new System.Drawing.Point(143, 228);
+            this.cmbTipoTramite.Location = new System.Drawing.Point(150, 230);
             this.cmbTipoTramite.Margin = new System.Windows.Forms.Padding(2);
             this.cmbTipoTramite.Name = "cmbTipoTramite";
             this.cmbTipoTramite.Size = new System.Drawing.Size(209, 21);
-            this.cmbTipoTramite.TabIndex = 108;
+            this.cmbTipoTramite.TabIndex = 184;
             // 
             // label2
             // 
@@ -264,11 +288,11 @@ namespace NobisSA
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(26, 233);
+            this.label2.Location = new System.Drawing.Point(33, 231);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 16);
-            this.label2.TabIndex = 107;
+            this.label2.TabIndex = 183;
             this.label2.Text = "Tipo tramite:";
             // 
             // cmbAgente
@@ -276,47 +300,44 @@ namespace NobisSA
             this.cmbAgente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbAgente.FormattingEnabled = true;
-            this.cmbAgente.Location = new System.Drawing.Point(531, 156);
+            this.cmbAgente.Location = new System.Drawing.Point(564, 151);
             this.cmbAgente.Margin = new System.Windows.Forms.Padding(2);
             this.cmbAgente.Name = "cmbAgente";
             this.cmbAgente.Size = new System.Drawing.Size(209, 21);
-            this.cmbAgente.TabIndex = 106;
-            this.cmbAgente.SelectedIndexChanged += new System.EventHandler(this.cmbAgente_SelectedIndexChanged);
+            this.cmbAgente.TabIndex = 182;
             // 
             // cmbSucursal
             // 
             this.cmbSucursal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbSucursal.FormattingEnabled = true;
-            this.cmbSucursal.Location = new System.Drawing.Point(531, 95);
+            this.cmbSucursal.Location = new System.Drawing.Point(564, 88);
             this.cmbSucursal.Margin = new System.Windows.Forms.Padding(2);
             this.cmbSucursal.Name = "cmbSucursal";
             this.cmbSucursal.Size = new System.Drawing.Size(209, 21);
-            this.cmbSucursal.TabIndex = 105;
-            this.cmbSucursal.SelectedIndexChanged += new System.EventHandler(this.cmbSucursal_SelectedIndexChanged);
+            this.cmbSucursal.TabIndex = 181;
             // 
             // pbAgentes
             // 
             this.pbAgentes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbAgentes.Image = ((System.Drawing.Image)(resources.GetObject("pbAgentes.Image")));
-            this.pbAgentes.Location = new System.Drawing.Point(743, 136);
+            this.pbAgentes.Location = new System.Drawing.Point(776, 129);
             this.pbAgentes.Margin = new System.Windows.Forms.Padding(2);
             this.pbAgentes.Name = "pbAgentes";
             this.pbAgentes.Size = new System.Drawing.Size(57, 59);
             this.pbAgentes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbAgentes.TabIndex = 101;
+            this.pbAgentes.TabIndex = 180;
             this.pbAgentes.TabStop = false;
-            this.pbAgentes.Click += new System.EventHandler(this.pbAgentes_Click);
             // 
             // txtObservacion
             // 
             this.txtObservacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtObservacion.Location = new System.Drawing.Point(530, 285);
+            this.txtObservacion.Location = new System.Drawing.Point(563, 276);
             this.txtObservacion.Margin = new System.Windows.Forms.Padding(2);
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(210, 20);
-            this.txtObservacion.TabIndex = 99;
+            this.txtObservacion.TabIndex = 178;
             // 
             // label4
             // 
@@ -324,19 +345,19 @@ namespace NobisSA
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(421, 289);
+            this.label4.Location = new System.Drawing.Point(454, 281);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 16);
-            this.label4.TabIndex = 100;
+            this.label4.TabIndex = 179;
             this.label4.Text = "Observacion:";
             // 
             // dtpFechaAuditado
             // 
-            this.dtpFechaAuditado.Location = new System.Drawing.Point(528, 225);
+            this.dtpFechaAuditado.Location = new System.Drawing.Point(561, 214);
             this.dtpFechaAuditado.Name = "dtpFechaAuditado";
             this.dtpFechaAuditado.Size = new System.Drawing.Size(212, 20);
-            this.dtpFechaAuditado.TabIndex = 98;
+            this.dtpFechaAuditado.TabIndex = 177;
             // 
             // label3
             // 
@@ -344,11 +365,11 @@ namespace NobisSA
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(396, 227);
+            this.label3.Location = new System.Drawing.Point(429, 219);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 16);
-            this.label3.TabIndex = 97;
+            this.label3.TabIndex = 176;
             this.label3.Text = "Fecha Auditado:";
             // 
             // label1
@@ -357,28 +378,28 @@ namespace NobisSA
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(457, 161);
+            this.label1.Location = new System.Drawing.Point(490, 157);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 16);
-            this.label1.TabIndex = 93;
+            this.label1.TabIndex = 175;
             this.label1.Text = "Agente:";
             // 
             // dtpFechaActual
             // 
-            this.dtpFechaActual.Location = new System.Drawing.Point(585, 21);
+            this.dtpFechaActual.Location = new System.Drawing.Point(574, 20);
             this.dtpFechaActual.Name = "dtpFechaActual";
             this.dtpFechaActual.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaActual.TabIndex = 91;
+            this.dtpFechaActual.TabIndex = 174;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtDescripcion.Location = new System.Drawing.Point(142, 331);
+            this.txtDescripcion.Location = new System.Drawing.Point(150, 326);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(209, 20);
-            this.txtDescripcion.TabIndex = 9;
+            this.txtDescripcion.TabIndex = 162;
             // 
             // lblTelefono
             // 
@@ -386,11 +407,11 @@ namespace NobisSA
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblTelefono.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblTelefono.Location = new System.Drawing.Point(56, 333);
+            this.lblTelefono.Location = new System.Drawing.Point(63, 323);
             this.lblTelefono.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(67, 16);
-            this.lblTelefono.TabIndex = 90;
+            this.lblTelefono.TabIndex = 173;
             this.lblTelefono.Text = "Tramite:";
             // 
             // lblLocalidad
@@ -399,11 +420,11 @@ namespace NobisSA
             this.lblLocalidad.AutoSize = true;
             this.lblLocalidad.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblLocalidad.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblLocalidad.Location = new System.Drawing.Point(447, 102);
+            this.lblLocalidad.Location = new System.Drawing.Point(480, 95);
             this.lblLocalidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLocalidad.Name = "lblLocalidad";
             this.lblLocalidad.Size = new System.Drawing.Size(70, 16);
-            this.lblLocalidad.TabIndex = 85;
+            this.lblLocalidad.TabIndex = 171;
             this.lblLocalidad.Text = "Sucursal:";
             // 
             // lblDireccion
@@ -412,11 +433,11 @@ namespace NobisSA
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblDireccion.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblDireccion.Location = new System.Drawing.Point(10, 289);
+            this.lblDireccion.Location = new System.Drawing.Point(17, 277);
             this.lblDireccion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(116, 16);
-            this.lblDireccion.TabIndex = 79;
+            this.lblDireccion.TabIndex = 170;
             this.lblDireccion.Text = "Forma de Pago:";
             // 
             // Documento
@@ -425,31 +446,31 @@ namespace NobisSA
             this.Documento.AutoSize = true;
             this.Documento.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.Documento.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Documento.Location = new System.Drawing.Point(82, 100);
+            this.Documento.Location = new System.Drawing.Point(89, 93);
             this.Documento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Documento.Name = "Documento";
             this.Documento.Size = new System.Drawing.Size(44, 16);
-            this.Documento.TabIndex = 71;
+            this.Documento.TabIndex = 169;
             this.Documento.Text = "DNI:";
             // 
             // txtDocumento
             // 
             this.txtDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtDocumento.Location = new System.Drawing.Point(143, 96);
+            this.txtDocumento.Location = new System.Drawing.Point(150, 89);
             this.txtDocumento.Margin = new System.Windows.Forms.Padding(2);
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(209, 20);
-            this.txtDocumento.TabIndex = 5;
-            this.txtDocumento.TextChanged += new System.EventHandler(this.txtDocumento_TextChanged);
+            this.txtDocumento.TabIndex = 161;
+            this.txtDocumento.TextChanged += new System.EventHandler(this.txtDocumento_TextChanged_1);
             // 
             // txtApellido
             // 
             this.txtApellido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtApellido.Location = new System.Drawing.Point(143, 179);
+            this.txtApellido.Location = new System.Drawing.Point(150, 183);
             this.txtApellido.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(209, 20);
-            this.txtApellido.TabIndex = 3;
+            this.txtApellido.TabIndex = 160;
             // 
             // lblApellido
             // 
@@ -457,21 +478,21 @@ namespace NobisSA
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblApellido.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblApellido.Location = new System.Drawing.Point(56, 179);
+            this.lblApellido.Location = new System.Drawing.Point(63, 185);
             this.lblApellido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(76, 16);
-            this.lblApellido.TabIndex = 58;
+            this.lblApellido.TabIndex = 165;
             this.lblApellido.Text = "Apellido: ";
             // 
             // txtNombre
             // 
             this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtNombre.Location = new System.Drawing.Point(143, 141);
+            this.txtNombre.Location = new System.Drawing.Point(150, 136);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(209, 20);
-            this.txtNombre.TabIndex = 2;
+            this.txtNombre.TabIndex = 159;
             // 
             // lblNombre
             // 
@@ -479,11 +500,11 @@ namespace NobisSA
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblNombre.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblNombre.Location = new System.Drawing.Point(59, 141);
+            this.lblNombre.Location = new System.Drawing.Point(66, 139);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(67, 16);
-            this.lblNombre.TabIndex = 56;
+            this.lblNombre.TabIndex = 164;
             this.lblNombre.Text = "Nombre:";
             // 
             // lblCodigoText
@@ -492,11 +513,11 @@ namespace NobisSA
             this.lblCodigoText.AutoSize = true;
             this.lblCodigoText.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.lblCodigoText.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblCodigoText.Location = new System.Drawing.Point(527, 21);
+            this.lblCodigoText.Location = new System.Drawing.Point(516, 20);
             this.lblCodigoText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCodigoText.Name = "lblCodigoText";
             this.lblCodigoText.Size = new System.Drawing.Size(48, 16);
-            this.lblCodigoText.TabIndex = 54;
+            this.lblCodigoText.TabIndex = 163;
             this.lblCodigoText.Text = "Fecha";
             // 
             // pbSucursal
@@ -504,33 +525,13 @@ namespace NobisSA
             this.pbSucursal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbSucursal.Image = ((System.Drawing.Image)(resources.GetObject("pbSucursal.Image")));
-            this.pbSucursal.Location = new System.Drawing.Point(743, 78);
+            this.pbSucursal.Location = new System.Drawing.Point(776, 71);
             this.pbSucursal.Margin = new System.Windows.Forms.Padding(2);
             this.pbSucursal.Name = "pbSucursal";
             this.pbSucursal.Size = new System.Drawing.Size(57, 59);
             this.pbSucursal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbSucursal.TabIndex = 86;
+            this.pbSucursal.TabIndex = 172;
             this.pbSucursal.TabStop = false;
-            this.pbSucursal.Click += new System.EventHandler(this.pbSucursal_Click);
-            // 
-            // btnBorrar
-            // 
-            this.btnBorrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnBorrar.FlatAppearance.BorderSize = 0;
-            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBorrar.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
-            this.btnBorrar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnBorrar.Image = ((System.Drawing.Image)(resources.GetObject("btnBorrar.Image")));
-            this.btnBorrar.Location = new System.Drawing.Point(328, 408);
-            this.btnBorrar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(105, 88);
-            this.btnBorrar.TabIndex = 67;
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnBorrar.UseVisualStyleBackColor = true;
-            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnSalir
             // 
@@ -540,11 +541,11 @@ namespace NobisSA
             this.btnSalir.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-            this.btnSalir.Location = new System.Drawing.Point(531, 408);
+            this.btnSalir.Location = new System.Drawing.Point(457, 401);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(93, 80);
-            this.btnSalir.TabIndex = 66;
+            this.btnSalir.Size = new System.Drawing.Size(94, 94);
+            this.btnSalir.TabIndex = 168;
             this.btnSalir.Text = "Volver";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -558,32 +559,15 @@ namespace NobisSA
             this.btnNuevo.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
-            this.btnNuevo.Location = new System.Drawing.Point(49, 414);
+            this.btnNuevo.Location = new System.Drawing.Point(56, 401);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(93, 80);
-            this.btnNuevo.TabIndex = 64;
+            this.btnNuevo.Size = new System.Drawing.Size(94, 94);
+            this.btnNuevo.TabIndex = 167;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.FlatAppearance.BorderSize = 0;
-            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVolver.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
-            this.btnVolver.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
-            this.btnVolver.Location = new System.Drawing.Point(18, 5);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(2);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(52, 49);
-            this.btnVolver.TabIndex = 62;
-            this.btnVolver.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnVolver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnVolver.UseVisualStyleBackColor = true;
             // 
             // btnCargar
             // 
@@ -593,16 +577,26 @@ namespace NobisSA
             this.btnCargar.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
             this.btnCargar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCargar.Image = ((System.Drawing.Image)(resources.GetObject("btnCargar.Image")));
-            this.btnCargar.Location = new System.Drawing.Point(240, 408);
+            this.btnCargar.Location = new System.Drawing.Point(247, 401);
             this.btnCargar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(97, 88);
-            this.btnCargar.TabIndex = 60;
+            this.btnCargar.Size = new System.Drawing.Size(94, 94);
+            this.btnCargar.TabIndex = 166;
             this.btnCargar.Text = "Cargar";
             this.btnCargar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCargar.UseVisualStyleBackColor = true;
-            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
+            // 
+            // txtEstado
+            // 
+            this.txtEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtEstado.Enabled = false;
+            this.txtEstado.Location = new System.Drawing.Point(822, 293);
+            this.txtEstado.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(38, 20);
+            this.txtEstado.TabIndex = 158;
+            this.txtEstado.Visible = false;
             // 
             // tabPage1
             // 
@@ -619,14 +613,14 @@ namespace NobisSA
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(1178, 515);
+            this.tabPage1.Size = new System.Drawing.Size(876, 515);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Buscar Tramite";
             // 
             // txtBuscarTramite
             // 
             this.txtBuscarTramite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtBuscarTramite.Location = new System.Drawing.Point(91, 51);
+            this.txtBuscarTramite.Location = new System.Drawing.Point(91, 48);
             this.txtBuscarTramite.Margin = new System.Windows.Forms.Padding(2);
             this.txtBuscarTramite.Name = "txtBuscarTramite";
             this.txtBuscarTramite.Size = new System.Drawing.Size(209, 20);
@@ -687,7 +681,7 @@ namespace NobisSA
             this.lblCantidaddeRegistros.AutoSize = true;
             this.lblCantidaddeRegistros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.lblCantidaddeRegistros.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.lblCantidaddeRegistros.Location = new System.Drawing.Point(14, 496);
+            this.lblCantidaddeRegistros.Location = new System.Drawing.Point(-306, 496);
             this.lblCantidaddeRegistros.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCantidaddeRegistros.Name = "lblCantidaddeRegistros";
             this.lblCantidaddeRegistros.Size = new System.Drawing.Size(179, 17);
@@ -698,7 +692,7 @@ namespace NobisSA
             // 
             this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnEliminar.Location = new System.Drawing.Point(659, 27);
+            this.btnEliminar.Location = new System.Drawing.Point(700, 48);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(88, 38);
@@ -710,10 +704,10 @@ namespace NobisSA
             // btnBuscar
             // 
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(282, 39);
+            this.btnBuscar.Location = new System.Drawing.Point(304, 48);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(38, 32);
+            this.btnBuscar.Size = new System.Drawing.Size(36, 29);
             this.btnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnBuscar.TabIndex = 10;
             this.btnBuscar.TabStop = false;
@@ -730,10 +724,15 @@ namespace NobisSA
             this.lblApellidoBuscar.TabIndex = 8;
             this.lblApellidoBuscar.Text = "Tramite:";
             // 
+            // OFDpdf
+            // 
+            this.OFDpdf.FileName = "openFileDialog1";
+            // 
             // frmTramites
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(955, 578);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmTramites";
@@ -763,6 +762,30 @@ namespace NobisSA
         private System.Windows.Forms.PictureBox btnBuscar;
         private System.Windows.Forms.Label lblApellidoBuscar;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.CheckBox chkEliminar;
+        private System.Windows.Forms.TextBox txtBuscarTramite;
+        private System.Windows.Forms.OpenFileDialog OFDpdf;
+        private System.Windows.Forms.Button btnBuscarPDF;
+        private System.Windows.Forms.Button btnAbrirPdf;
+        private System.Windows.Forms.TextBox txtPdf;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnRechazar;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.TextBox txtNroTramite;
+        private System.Windows.Forms.ComboBox cmbTipoPago;
+        private System.Windows.Forms.Button btnAutorizar;
+        private System.Windows.Forms.ComboBox cmbTipoTramite;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbAgente;
+        private System.Windows.Forms.ComboBox cmbSucursal;
+        private System.Windows.Forms.PictureBox pbAgentes;
+        private System.Windows.Forms.TextBox txtObservacion;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dtpFechaAuditado;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dtpFechaActual;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Label lblLocalidad;
@@ -775,31 +798,9 @@ namespace NobisSA
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblCodigoText;
         private System.Windows.Forms.PictureBox pbSucursal;
-        private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnCargar;
-        private System.Windows.Forms.PictureBox pbAgentes;
-        private System.Windows.Forms.TextBox txtObservacion;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtpFechaAuditado;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dtpFechaActual;
-        private System.Windows.Forms.ComboBox cmbAgente;
-        private System.Windows.Forms.ComboBox cmbSucursal;
-        private System.Windows.Forms.ComboBox cmbTipoTramite;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnRechazado;
-        private System.Windows.Forms.Button btnAutorizar;
-        private System.Windows.Forms.CheckBox chkEliminar;
-        private System.Windows.Forms.TextBox txtBuscarTramite;
-        private System.Windows.Forms.ComboBox cmbTipoPago;
-        private System.Windows.Forms.TextBox txtNroTramite;
-        private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtEstado;
     }
 }

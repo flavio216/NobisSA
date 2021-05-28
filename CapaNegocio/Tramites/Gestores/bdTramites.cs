@@ -20,7 +20,7 @@ namespace CapaNegocio
 
             try
             {
-                string consulta = "insert into tramites ( idTipoTramite,fecha,dni,idtipopago,descripcion,idagente,estado) values ( @idtipotramite, @fecha,@dni,@idtipopago,@descripcion, @idagente,@estado)";
+                string consulta = "insert into tramites ( idTipoTramite,fecha,dni,idtipopago,descripcion,idagente,estado,pdf,url) values ( @idtipotramite, @fecha,@dni,@idtipopago,@descripcion, @idagente,@estado,@pdf,@url)";
                 SqlCommand cmd = new SqlCommand(consulta, conex.conexion);
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@idtipotramite", t.pIdTipoTramite);
@@ -28,8 +28,10 @@ namespace CapaNegocio
                 cmd.Parameters.AddWithValue("@dni", t.pDni);
                 cmd.Parameters.AddWithValue("@idtipopago", t.pIdTipoPago);               
                 cmd.Parameters.AddWithValue("@descripcion", t.pDescripcion);
-                cmd.Parameters.AddWithValue("@idagente", t.pIdagente);
+                cmd.Parameters.AddWithValue("@idagente", t.pIdagente);               
                 cmd.Parameters.AddWithValue("@estado", true);
+                cmd.Parameters.AddWithValue("@pdf", t.Pdf);
+                cmd.Parameters.AddWithValue("@url", t.pUrl);
 
 
 
@@ -176,7 +178,7 @@ namespace CapaNegocio
             {
                 
                 conex.Conectar();
-                conex.pComando.CommandText = @"select t.idtramite,tt.tramite 'Tramite',Fecha, t.dni 'DNI',af.Nombre,af.Apellido,formapago 'Forma de Pago',descripcion ' Tamite                                                             ',ag.Agente,FechaAuditado,Observacion,Estado from tramites t 
+                conex.pComando.CommandText = @"select t.idtramite,tt.tramite 'Tramite',Fecha, t.dni 'DNI',af.Nombre,af.Apellido,formapago 'Forma de Pago',descripcion ' Tamite                                                             ',ag.Agente,FechaAuditado,Observacion,Estado,url from tramites t 
                                                 inner join tipotramites tt on t.idTipoTramite = tt.idTipoTramite
                                                 inner join afiliados af on af.dni = t.dni
                                                 inner join tipopagos tp on tp.idtipopago = t.idtipopago

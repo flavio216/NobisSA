@@ -1,5 +1,5 @@
 ﻿
-namespace NobisSA.Afiliados
+namespace NobisSA
 {
     partial class frmAfiliados
     {
@@ -134,7 +134,7 @@ namespace NobisSA.Afiliados
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(951, 480);
+            this.tabPage1.Size = new System.Drawing.Size(951, 492);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             // 
@@ -236,7 +236,7 @@ namespace NobisSA.Afiliados
             this.button2.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(497, 389);
+            this.button2.Location = new System.Drawing.Point(497, 401);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 88);
@@ -254,7 +254,7 @@ namespace NobisSA.Afiliados
             this.btnEditar.Font = new System.Drawing.Font("Imprint MT Shadow", 10F, System.Drawing.FontStyle.Bold);
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(217, 393);
+            this.btnEditar.Location = new System.Drawing.Point(217, 405);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(65, 82);
@@ -491,7 +491,7 @@ namespace NobisSA.Afiliados
             this.btnBorrar.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
             this.btnBorrar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnBorrar.Image = ((System.Drawing.Image)(resources.GetObject("btnBorrar.Image")));
-            this.btnBorrar.Location = new System.Drawing.Point(400, 389);
+            this.btnBorrar.Location = new System.Drawing.Point(400, 401);
             this.btnBorrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(105, 88);
@@ -509,7 +509,7 @@ namespace NobisSA.Afiliados
             this.btnSalir.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-            this.btnSalir.Location = new System.Drawing.Point(591, 389);
+            this.btnSalir.Location = new System.Drawing.Point(591, 401);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(93, 80);
@@ -527,7 +527,7 @@ namespace NobisSA.Afiliados
             this.btnNuevo.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
-            this.btnNuevo.Location = new System.Drawing.Point(120, 393);
+            this.btnNuevo.Location = new System.Drawing.Point(120, 405);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(93, 80);
@@ -562,7 +562,7 @@ namespace NobisSA.Afiliados
             this.btnCargar.Font = new System.Drawing.Font("Imprint MT Shadow", 14F, System.Drawing.FontStyle.Bold);
             this.btnCargar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCargar.Image = ((System.Drawing.Image)(resources.GetObject("btnCargar.Image")));
-            this.btnCargar.Location = new System.Drawing.Point(315, 389);
+            this.btnCargar.Location = new System.Drawing.Point(315, 401);
             this.btnCargar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(97, 88);
@@ -611,6 +611,7 @@ namespace NobisSA.Afiliados
             this.chkEliminar.TabIndex = 24;
             this.chkEliminar.Text = "Eliminar";
             this.chkEliminar.UseVisualStyleBackColor = true;
+            this.chkEliminar.CheckedChanged += new System.EventHandler(this.chkEliminar_CheckedChanged);
             // 
             // dtgAfiliados
             // 
@@ -635,6 +636,7 @@ namespace NobisSA.Afiliados
             this.dtgAfiliados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgAfiliados.Size = new System.Drawing.Size(839, 367);
             this.dtgAfiliados.TabIndex = 23;
+            this.dtgAfiliados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgAfiliados_CellContentClick);
             this.dtgAfiliados.DoubleClick += new System.EventHandler(this.dtgTramite_DoubleClick);
             // 
             // Eliminar
@@ -669,6 +671,7 @@ namespace NobisSA.Afiliados
             this.btnEliminar.TabIndex = 21;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnBuscar
             // 
