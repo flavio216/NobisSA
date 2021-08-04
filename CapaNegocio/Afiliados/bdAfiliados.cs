@@ -170,5 +170,41 @@ namespace CapaNegocio
 
             return resultado;
         }
+        public bool EliminarAfiliado(int id)
+        {
+            bool resultado = false;
+
+            AccesoDatos conex = new AccesoDatos();
+
+            try
+            {
+                string consulta = "delete from afiliados WHERE dni = @dni";
+                SqlCommand cmd = new SqlCommand(consulta, conex.conexion);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@dni", id);
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = consulta;
+
+                conex.Conectar();
+                cmd.ExecuteNonQuery();
+                resultado = true;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+
+                    "No se ha podido Eliminar.",
+                    "Aviso");
+            }
+            finally
+            {
+                conex.Desconectar();
+            }
+
+            return resultado;
+        }
+
     }
 }

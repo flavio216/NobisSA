@@ -20,8 +20,10 @@ namespace NobisSA
         public frmSucursales()
         {
             InitializeComponent();
-            
+            nuevo = false;
             cargarLista();
+            btnCargar.Enabled = false;
+            btnBorrar.Enabled = false;
         }
          private void cargarLista()
          {
@@ -45,14 +47,39 @@ namespace NobisSA
              lstSucursales.SelectedIndex = -1;
 
          }
+        private bool validarCampos()
+        {
+            bool ok = true;
 
-        
+            if (txtCodigo.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Codigo Postal...");
+                txtCodigo.Focus();
+                ok = false;
+                errorCliente.SetError(txtCodigo, "Ingrese un Codigo Postal");
+                return false;
+            }
+            if (txtNombre.Text == "")
+            {
+                MessageBox.Show("Debe ingresar el nombre de la sucursal...");
+                txtNombre.Focus();
+                ok = false;
+                errorCliente.SetError(txtNombre, "Ingrese Sucursal");
+                return false;
+            }
+
+
+            return true;
+        }
+
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            
-            string sucursal = txtNombre.Text;
-            int codigo = int.Parse(txtCodigo.Text);
-            bdSucursales gestor = new bdSucursales();
+            if(validarCampos())
+            {
+                
+                int codigo = int.Parse(txtCodigo.Text);
+                string sucursal = txtNombre.Text;
+                bdSucursales gestor = new bdSucursales();
            
            if(nuevo)
             {
@@ -64,6 +91,9 @@ namespace NobisSA
                     if (resultado)
                     {
                         MessageBox.Show("La sucursal se ha cargado con exito.", "Insertar Sucursal", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        nuevo = false;
+                        txtCodigo.Text = "";
+                        txtNombre.Text = "";
                         //this.Close();
                     }
                     else
@@ -88,22 +118,27 @@ namespace NobisSA
                         ", por favor contacte al Administrador del sistema.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            }
 
 
             cargarLista();
-            Habilitar(false);
+            //Habilitar(false);
         }
     
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             nuevo = false;
-            Habilitar(true);
+            //Habilitar(true);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Habilitar(true);
+            // Habilitar(true);
+            btnBorrar.Enabled = false;
+            btnCargar.Enabled = true;
+            btnNuevo.Enabled = false;
+            txtCodigo.Enabled = true;
             nuevo = true;
             Limpiar();
         }
@@ -125,7 +160,7 @@ namespace NobisSA
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Habilitar(false);
+           // Habilitar(false);
         }
 
         private void lstSucursales_SelectedIndexChanged(object sender, EventArgs e)
@@ -135,6 +170,11 @@ namespace NobisSA
                 int pos = lstSucursales.SelectedIndex;
                 txtNombre.Text = sucursales[pos].pSucursal;
                 txtCodigo.Text = (sucursales[pos].pId).ToString();
+                txtCodigo.Enabled = false;
+                btnNuevo.Enabled = true;
+                btnBorrar.Enabled = true;
+                btnCargar.Enabled = true;
+                nuevo = false;
             }
 
             catch (Exception)
@@ -152,7 +192,7 @@ namespace NobisSA
             bdSucursales gestor = new bdSucursales();
 
 
-            bool resultado = gestor.EliminarSucursal( codigo);
+            bool resultado = gestor.EliminarSucursal(codigo);
 
             if (resultado)
             {
@@ -167,7 +207,7 @@ namespace NobisSA
 
             cargarLista();
         }
-        private void Habilitar(bool x)
+       /* private void Habilitar(bool x)
         {
             txtCodigo.Enabled = x;
             txtNombre.Enabled = x;
@@ -178,11 +218,27 @@ namespace NobisSA
             btnEditar.Enabled = !x;
             btnNuevo.Enabled = !x;
             btnCancelar.Enabled = x;
-        }
+        }*/
 
         private void frmSucursales_Load(object sender, EventArgs e)
         {
-            Habilitar(false);
+            // Habilitar(false);
+          //  this.reportViewer1.RefreshReport();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidaciones.SoloLetras(e);
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidaciones.SoloNumeros(e);
         }
     }
     }

@@ -33,6 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -71,6 +89,32 @@
     <Compile Include="Afiliados\frmAfiliados.Designer.cs">
       <DependentUpon>frmAfiliados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Afiliados\rprtAfiliados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Afiliados\rprtAfiliados.Designer.cs">
+      <DependentUpon>rprtAfiliados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dtsPrincipal.cs">
+      <DependentUpon>dtsPrincipal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dtsPrincipal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsPrincipal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Envios\frmEnvios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Envios\frmEnvios.Designer.cs">
+      <DependentUpon>frmEnvios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Envios\rprtEnvios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Envios\rprtEnvios.Designer.cs">
+      <DependentUpon>rprtEnvios.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,11 +127,48 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\frmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\frmProductos.Designer.cs">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\rprtProductosSinStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\rprtProductosSinStock.Designer.cs">
+      <DependentUpon>rprtProductosSinStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\rprtProductosStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\rprtProductosStock.Designer.cs">
+      <DependentUpon>rprtProductosStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Terminos\frmPreguntas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Terminos\frmPreguntas.Designer.cs">
+      <DependentUpon>frmPreguntas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Terminos\frmTerminos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Terminos\frmTerminos.Designer.cs">
+      <DependentUpon>frmTerminos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tramites\frmAgentes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Tramites\frmAgentes.Designer.cs">
       <DependentUpon>frmAgentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Envios\frmEnviarMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Envios\frmEnviarMail.Designer.cs">
+      <DependentUpon>frmEnviarMail.cs</DependentUpon>
     </Compile>
     <Compile Include="Tramites\frmSucursales.cs">
       <SubType>Form</SubType>
@@ -106,14 +187,45 @@
     <EmbeddedResource Include="Afiliados\frmAfiliados.resx">
       <DependentUpon>frmAfiliados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Afiliados\infAfiliados.rdlc" />
+    <EmbeddedResource Include="Afiliados\rprtAfiliados.resx">
+      <DependentUpon>rprtAfiliados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Envios\frmEnvios.resx">
+      <DependentUpon>frmEnvios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Envios\infEnvios.rdlc" />
+    <EmbeddedResource Include="Envios\rprtEnvios.resx">
+      <DependentUpon>rprtEnvios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\frmProductos.resx">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\infProductosSinStock.rdlc" />
+    <EmbeddedResource Include="Inventario\infProductosStock.rdlc" />
+    <EmbeddedResource Include="Inventario\rprtProductosSinStock.resx">
+      <DependentUpon>rprtProductosSinStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\rprtProductosStock.resx">
+      <DependentUpon>rprtProductosStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Terminos\frmPreguntas.resx">
+      <DependentUpon>frmPreguntas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Terminos\frmTerminos.resx">
+      <DependentUpon>frmTerminos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tramites\frmAgentes.resx">
       <DependentUpon>frmAgentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Envios\frmEnviarMail.resx">
+      <DependentUpon>frmEnviarMail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tramites\frmSucursales.resx">
       <DependentUpon>frmSucursales.cs</DependentUpon>
@@ -129,7 +241,19 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="dtsPrincipal.xsc">
+      <DependentUpon>dtsPrincipal.xsd</DependentUpon>
+    </None>
+    <None Include="dtsPrincipal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsPrincipal.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dtsPrincipal.xss">
+      <DependentUpon>dtsPrincipal.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -153,6 +277,24 @@
       <Project>{62220a97-05fb-4628-95ab-32d98e3c9971}</Project>
       <Name>CapaNegocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3592814-document-general-letter-note-office-page-paper_107776.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

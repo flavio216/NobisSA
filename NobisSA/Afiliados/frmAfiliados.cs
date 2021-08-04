@@ -1,5 +1,6 @@
 ﻿using CapaDato;
 using CapaNegocio;
+using NobisSA.Afiliados;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,9 @@ namespace NobisSA
 {
     public partial class frmAfiliados : Form
     {
+        List<clsAfiliados> afiliados = new List<clsAfiliados>();
         bool nuevo;
+        int c;
         public frmAfiliados()
         {
             InitializeComponent();
@@ -24,6 +27,11 @@ namespace NobisSA
             cargarCombo(cmbTipoSexo, "Tiposexos");
             cargarCombo(cmbEstadoCivil, "TipoEstadoCivil");
             RellenarDTGafiliados();
+            cmbCiudad.SelectedIndex = -1;
+            cmbEstadoCivil.SelectedIndex = -1;
+            cmbPlan.SelectedIndex = -1;
+            cmbTipoSexo.SelectedIndex = -1;
+            nuevo = true;
 
         }
 
@@ -83,8 +91,118 @@ namespace NobisSA
             }
         }
 
+        private bool validarPK(int pk)
+        {
+            for (int i = 0; i < c; i++)
+            {
+                if (afiliados[i].pDni == pk)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool validarCampos()
+        {
+            bool ok = true;
+
+            
+            if (txtDocumento.Text == "")
+            {
+                MessageBox.Show("Debe ingresar el DNI...");
+                txtDocumento.Focus();
+                ok = false;
+                errorCliente.SetError(txtDocumento, "Ingrese DNI");
+                return false;
+            }
+            if (txtNombre.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Nombre...");
+                txtNombre.Focus();
+                ok = false;
+                errorCliente.SetError(txtNombre, "Ingrese un Nombre");
+                return false;
+            }
+            if (txtApellido.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Apellido...");
+                txtApellido.Focus();
+                ok = false;
+                errorCliente.SetError(txtApellido, "Ingrese un Apellido");
+                return false;
+            }
+            if (cmbTipoSexo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe ingresar un Tipo de Sexo...");
+                cmbTipoSexo.Focus();
+                ok = false;
+                errorCliente.SetError(cmbTipoSexo, "Ingrese un Tipo de Sexo");
+                return false;
+            }
+            if (cmbEstadoCivil.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe ingresar un Tipo de Estado Civil...");
+                cmbEstadoCivil.Focus();
+                ok = false;
+                errorCliente.SetError(cmbEstadoCivil, "Ingrese un Estado Civil");
+                return false;
+            }
+            if (cmbCiudad.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe ingresar una Ciudad...");
+                cmbCiudad.Focus();
+                ok = false;
+                errorCliente.SetError(cmbCiudad, "Ingrese una Ciudad");
+                return false;
+            }
+            if (cmbLocalidad.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe ingresar una Localidad...");
+                cmbLocalidad.Focus();
+                ok = false;
+                errorCliente.SetError(cmbLocalidad, "Ingrese una Localidad");
+                return false;
+            }
+            if (txtDomicilio.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Domicilio...");
+                txtDomicilio.Focus();
+                ok = false;
+                errorCliente.SetError(txtDomicilio, "Ingrese un Domicilio");
+                return false;
+            }
+            if(txtTelefono.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Telefono...");
+                txtDomicilio.Focus();
+                ok = false;
+                errorCliente.SetError(txtDomicilio, "Ingrese un Telefono");
+                return false;
+            }
+            if(txtMail.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Mail...");
+                txtDomicilio.Focus();
+                ok = false;
+                errorCliente.SetError(txtDomicilio, "Ingrese un Mail");
+                return false;
+            }
+            if (cmbPlan.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe ingresar el Plan...");
+                cmbPlan.Focus();
+                ok = false;
+                errorCliente.SetError(cmbPlan, "Ingrese el Plan");
+                return false;
+            }
+
+
+            return true;
+        }
         private void btnCargar_Click(object sender, EventArgs e)
         {
+            if(validarCampos())
+            {
 
             int dni = int.Parse(txtDocumento.Text);
             string nombre = txtNombre.Text;
@@ -103,16 +221,20 @@ namespace NobisSA
             bdAfiliados gestor = new bdAfiliados();
             if (nuevo)
             {
+                
+                if (!validarPK(dni))
 
-                bool resultado = gestor.InsertarAfiliados(tramite);
+                {
+                  bool resultado = gestor.InsertarAfiliados(tramite);
 
                 if (resultado)
                 {
                     MessageBox.Show("El Afiliado se ha cargado con exito.", "Insertar Afiliado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                   lblCantidaddeRegistros.Text = "Cantidad de registros:" + dtgAfiliados.Rows.Count.ToString();
+                    lblCantidaddeRegistros.Text = "Cantidad de registros:" + dtgAfiliados.Rows.Count.ToString();
                     RellenarDTGafiliados();
                     Limpiar();
                     tabControl1.SelectedIndex = 1;
+                    nuevo = false;
 
                 }
                 else
@@ -120,7 +242,7 @@ namespace NobisSA
                     MessageBox.Show("Error al cargar el afiliado...");
 
                 }
-
+               }
             }
           
             else
@@ -138,19 +260,20 @@ namespace NobisSA
                 {
                     MessageBox.Show("Ha ocurrido un error al intentar editar el afiliado" +
                         ", por favor contacte al Administrador del sistema.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                }              
 
+                /* RellenarDTGtramites();
+                 int idRubro = Convert.ToInt32(cmbSucursales.SelectedValue);
+                  cargarLista(idRubro);
+                  Habilitar(false);
+                 */
 
-               /* RellenarDTGtramites();
-                int idRubro = Convert.ToInt32(cmbSucursales.SelectedValue);
-                 cargarLista(idRubro);
-                 Habilitar(false);
-                */
-           
+            }
             }
         }
         private void Limpiar()
         {
+            txtDocumento.Text = "";
             txtDomicilio.Text = "";
             txtNombre.Text = "";
             txtApellido.Text = "";
@@ -168,9 +291,9 @@ namespace NobisSA
         private void btnEditar_Click(object sender, EventArgs e)
         {
             nuevo = false;
-            Habilitar(true);
+           // Habilitar(true);
         }
-        private void Habilitar(bool x)
+      /*  private void Habilitar(bool x)
         {
             txtDocumento.Enabled = x;
             txtNombre.Enabled = x;
@@ -180,12 +303,15 @@ namespace NobisSA
             btnEditar.Enabled = !x;
             btnNuevo.Enabled = !x;
             btnBorrar.Enabled = x;
-        }
+        }*/
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Habilitar(true);
+           // Habilitar(true);
             nuevo = true;
+            Limpiar();
+            btnNuevo.Enabled = false;
+            txtDocumento.Enabled = true;
         }
 
         private void dtgTramite_DoubleClick(object sender, EventArgs e)
@@ -203,7 +329,10 @@ namespace NobisSA
             txtMail.Text = Convert.ToString(dtgAfiliados.CurrentRow.Cells[11].Value);
             cmbPlan.Text = Convert.ToString(dtgAfiliados.CurrentRow.Cells[12].Value);
 
-            btnCargar.Enabled = false;
+
+            txtDocumento.Enabled = false;
+            nuevo = false;
+            btnNuevo.Enabled = true;
             tabControl1.SelectedIndex = 0;
         }
 
@@ -236,6 +365,7 @@ namespace NobisSA
                         dni = Convert.ToInt32(row.Cells[1].Value);
                         sql = "delete from afiliados where dni =" + dni;
                         bd.actualizarBD(sql);
+                        tabControl1.SelectedIndex = 1;
                     }
                 }
 
@@ -251,6 +381,90 @@ namespace NobisSA
                 DataGridViewCheckBoxCell ChkEliminar = (DataGridViewCheckBoxCell)dtgAfiliados.Rows[e.RowIndex].Cells["Eliminar"];
                 ChkEliminar.Value = !Convert.ToBoolean(ChkEliminar.Value);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            int codigo = int.Parse(txtDocumento.Text);
+            bdAfiliados gestor = new bdAfiliados();
+
+
+            bool resultado = gestor.EliminarAfiliado(codigo);
+
+            if (resultado)
+            {
+                MessageBox.Show("El afiliado  se ha eliminado con exito.", "Elimiar Afiliado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                RellenarDTGafiliados();
+                //this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error al intentar Elimiar el afiliado" +
+                    ", por favor contacte al Administrador del sistema.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+          
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtDocumento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            rprtAfiliados rprt = new rprtAfiliados();
+            rprt.Show();
+        }
+
+        private void txtBuscarTramite_TextChanged(object sender, EventArgs e)
+        {
+            string sql = @"select dni,nombre,apellido,fechanac,ts.sexo,te.estadoCivil,l.localidad,c.ciudad,domicilio,telefono,mail,p.nombrePlan from Afiliados a
+                                                inner join tiposexos ts on a.idTiposexo = ts.idtiposexo
+                                                inner join TipoEstadoCivil te on a.idEstadoCivil = te.IdTipoEstadoCivil
+                                                inner join localidades l on l.idlocalidad=a.idLocalidad
+                                                inner join planes p on p.idPlan=a.idPlan
+                                                inner join ciudades c on l.idCiudad=c.idCiudad WHERE dni LIKE '" + txtBuscarAfiliado.Text + "%'  or apellido LIKE '" + txtBuscarAfiliado.Text + "%'";
+            Buscar(sql, dtgAfiliados);
+        }
+        public void Buscar(string sql, DataGridView dtgv)
+        {
+            DataTable dt = new DataTable();
+            AccesoDatos gestor = new AccesoDatos();
+            dt = gestor.buscarTabla(sql);
+            dtgv.DataSource = dt;
+            lblCantidaddeRegistros.Text = "Cantidad de registros: " + dtgAfiliados.Rows.Count.ToString();
+
+        }
+
+        private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidaciones.SoloNumeros(e);
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidaciones.SoloLetras(e);
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidaciones.SoloLetras(e);
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidaciones.SoloNumeros(e);
         }
     }
 }

@@ -72,7 +72,9 @@ namespace CapaNegocio
                                     dni = @dni,
                                     idTipoPago = @idtipopago,
                                     descripcion = @descripcion,
-                                    idagente = @idagente
+                                    idagente = @idagente,
+                                    estado = @estado,
+                                    url = @url
                                       WHERE idtramite = @idtramite";
                 SqlCommand cmd = new SqlCommand(consulta, conex.conexion);
                 cmd.Parameters.Clear();
@@ -83,6 +85,8 @@ namespace CapaNegocio
                 cmd.Parameters.AddWithValue("@idtipopago", t.pIdTipoPago);
                 cmd.Parameters.AddWithValue("@descripcion", t.pDescripcion);
                 cmd.Parameters.AddWithValue("@idagente", t.pIdagente);
+                cmd.Parameters.AddWithValue("@estado", t.pEstado);
+                cmd.Parameters.AddWithValue("@url", t.pUrl);
 
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = consulta;
@@ -178,7 +182,7 @@ namespace CapaNegocio
             {
                 
                 conex.Conectar();
-                conex.pComando.CommandText = @"select t.idtramite,tt.tramite 'Tramite',Fecha, t.dni 'DNI',af.Nombre,af.Apellido,formapago 'Forma de Pago',descripcion ' Tamite                                                             ',ag.Agente,FechaAuditado,Observacion,Estado,url from tramites t 
+                conex.pComando.CommandText = @"select t.idtramite,tt.tramite 'Tramite',Fecha, t.dni 'DNI',af.Nombre,af.Apellido,formapago 'Forma de Pago',descripcion ' Tamite                                                             ',ag.Agente,FechaAuditado,Observacion,Estado,url, ag.mail from tramites t 
                                                 inner join tipotramites tt on t.idTipoTramite = tt.idTipoTramite
                                                 inner join afiliados af on af.dni = t.dni
                                                 inner join tipopagos tp on tp.idtipopago = t.idtipopago
@@ -202,6 +206,41 @@ namespace CapaNegocio
                 conex.Desconectar();
             }
             return dt;
+        }
+        public bool EliminarTramite(int id)
+        {
+            bool resultado = false;
+
+            AccesoDatos conex = new AccesoDatos();
+
+            try
+            {
+                string consulta = "delete from tramites WHERE idtramite = @idtramite";
+                SqlCommand cmd = new SqlCommand(consulta, conex.conexion);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@idtramite", id);
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = consulta;
+
+                conex.Conectar();
+                cmd.ExecuteNonQuery();
+                resultado = true;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+
+                    "No se ha podido Eliminar.",
+                    "Aviso");
+            }
+            finally
+            {
+                conex.Desconectar();
+            }
+
+            return resultado;
         }
     }
 }

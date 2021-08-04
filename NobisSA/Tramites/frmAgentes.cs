@@ -16,11 +16,16 @@ namespace NobisSA.Tramites
         List<clsAgentes> agentes = new List<clsAgentes>();
         bool nuevo;
         int c;
+       
         public frmAgentes()
         {
             InitializeComponent();
             cargarCombo();
+            nuevo = false;
+            btnCargar.Enabled = false;
+            btnBorrar.Enabled = false;
             lstAgente.Items.Clear();
+            //txtcodigo.Enabled = false;
 
         }
         private void cargarCombo()
@@ -33,6 +38,7 @@ namespace NobisSA.Tramites
             cmbSucursales.DisplayMember = dt.Columns[1].ColumnName;
             cmbSucursales.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbSucursales.SelectedIndex = -1;
+            nuevo = true;
         }
         private void cargarLista(int id)
         {
@@ -49,6 +55,10 @@ namespace NobisSA.Tramites
                 r.pId = Convert.ToInt32(dt.Rows[i]["idagente"]);
                 r.pIdsucursal = Convert.ToInt32(dt.Rows[i]["idsucursal"]);
                 r.pNombre = dt.Rows[i]["agente"].ToString();
+                r.pMail = dt.Rows[i]["mail"].ToString();
+                r.pContrasena = dt.Rows[i]["contrasena"].ToString();
+                 nuevo = false;
+               
                 //  r.pEstado = Convert.ToInt32(dt.Rows[i]["Estado"]);
 
                 agentes.Add(r);
@@ -68,28 +78,102 @@ namespace NobisSA.Tramites
             }
             return false;
         }
+        private bool arregloCompleto(int contador, int tamanio)
+        {
+            if (contador != tamanio)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private bool validarCampos()
+        {
+            bool ok = true;
+
+            if (cmbSucursales.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe ingresar una Sucursal...");
+                cmbSucursales.Focus();
+                ok = false;
+                errorCliente.SetError(cmbSucursales, "Ingrese una sucursal");
+                return false;
+            }
+            if (txtDNI.Text == "")
+            {
+                MessageBox.Show("Debe ingresar el DNI...");
+                txtDNI.Focus();
+                ok = false;
+                errorCliente.SetError(txtDNI, "Ingrese DNI");
+                return false;
+            }
+            if (txtAgente.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Agente...");
+                txtAgente.Focus();
+                ok = false;
+                errorCliente.SetError(txtAgente, "Ingrese un Agente");
+                return false;
+            }
+            if (txtMail.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Correo...");
+                txtMail.Focus();
+                ok = false;
+                errorCliente.SetError(txtMail, "Ingrese un Correo");
+                return false;
+            }
+            if (txtPass.Text == "")
+            {
+                MessageBox.Show("Debe ingresar una contraseña...");
+                txtPass.Focus();
+                ok = false;
+                errorCliente.SetError(txtPass, "Ingrese una contraseña");
+                return false;
+            }
+
+            return true;
+        }
+        private void Limpiar()
+        {
+            //cmbSucursales.SelectedIndex = -1;
+            txtAgente.Text = "";
+            txtDNI.Text = "";
+            txtMail.Text = "";
+            txtPass.Text = "";
+        }
+
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            int codigo = int.Parse(txtcodigo.Text);
-            string agente = txtAgente.Text;
-            int idsucursal = Convert.ToInt32(cmbSucursales.SelectedValue);
-            bdAgentes gestor = new bdAgentes();
+            
 
-            if (nuevo)
+            if(validarCampos())
+            {
+                int idsucursal = Convert.ToInt32(cmbSucursales.SelectedValue);
+                int codigo = int.Parse(txtDNI.Text);
+                string agente = txtAgente.Text;
+                string mail = txtMail.Text;
+                string contrasena = txtPass.Text;
+                
+                bdAgentes gestor = new bdAgentes();
+                if (nuevo)
             {
                 
                 if (!validarPK(codigo))
 
                 {
-                    bool resultado = gestor.Insertaragente(codigo, agente, idsucursal);
+                    bool resultado = gestor.Insertaragente(codigo, agente, idsucursal,mail, contrasena);
 
                     if (resultado)
                     {
                         MessageBox.Show("El agente se ha cargado con exito.", "Insertar Agente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                      //  cargarLista();
-                        txtAgente.Text = "";
+                        cargarLista(idsucursal);
+                        Limpiar();
+                        nuevo = true;
                         //this.Close();
-                 }
+                    }
                     else
                     {
                         MessageBox.Show("Error al cargar el agente...");
@@ -101,10 +185,11 @@ namespace NobisSA.Tramites
             else
             {
                
-                bool resultado2 = gestor.EditarAgente(agente, codigo);
+                bool resultado2 = gestor.EditarAgente(agente, codigo,mail,contrasena);
                 if (resultado2)
                 {
                     MessageBox.Show("El agente se ha editado con exito.", "Editar agente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        Limpiar();
                     //this.Close();
                 }
                 else
@@ -113,11 +198,12 @@ namespace NobisSA.Tramites
                         ", por favor contacte al Administrador del sistema.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            }
 
 
             int idRubro = Convert.ToInt32(cmbSucursales.SelectedValue);
             cargarLista(idRubro); 
-            Habilitar(false);
+         //   Habilitar(false);
         
         }
 
@@ -127,7 +213,13 @@ namespace NobisSA.Tramites
             {
                 int pos = lstAgente.SelectedIndex;
                 txtAgente.Text = agentes[pos].pNombre;
-                txtcodigo.Text = (agentes[pos].pId).ToString();
+                txtDNI.Text = (agentes[pos].pId).ToString();
+                txtMail.Text = agentes[pos].pMail;
+                txtPass.Text = agentes[pos].pContrasena;
+                btnNuevo.Enabled = true;
+                btnBorrar.Enabled = true;
+                btnCargar.Enabled = true;
+                nuevo = false;
             }
 
             catch (Exception)
@@ -138,34 +230,40 @@ namespace NobisSA.Tramites
 
            // cargarLista();
         }
-        private void Habilitar(bool x)
+       /* private void Habilitar(bool x)
         {
             txtAgente.Enabled = x;
             btnCargar.Enabled = x;
             btnNuevo.Enabled = !x;
             lstAgente.Enabled = !x;
             btnBorrar.Enabled = !x;
-            btnEditar.Enabled = !x;
             btnNuevo.Enabled = !x;
-            btnCancelar.Enabled = x;
-        }
+
+        }*/
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             nuevo = false;
-            Habilitar(true);
+           // Habilitar(true);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Habilitar(true);
+            txtDNI.Text = "";
+            txtAgente.Text = "";
+            txtPass.Text = "";
+            txtMail.Text = "";
+           // cmbSucursales.SelectedIndex = -1;
             nuevo = true;
+            btnNuevo.Enabled = false;
+            btnCargar.Enabled = true;
+            
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
 
-            int codigo = int.Parse(txtcodigo.Text);
+            int codigo = int.Parse(txtDNI.Text);
             bdAgentes gestor = new bdAgentes();
 
 
@@ -174,6 +272,7 @@ namespace NobisSA.Tramites
             if (resultado)
             {
                 MessageBox.Show("El agente se ha eliminado con exito.", "Elimiar agente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Limpiar();
                 //this.Close();
             }
             else
@@ -182,13 +281,10 @@ namespace NobisSA.Tramites
                     ", por favor contacte al Administrador del sistema.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-         //   cargarLista();
+            int idRubro = Convert.ToInt32(cmbSucursales.SelectedValue);
+            cargarLista(idRubro);
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Habilitar(false);
-        }
 
         private void cmbAgentes_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -196,7 +292,10 @@ namespace NobisSA.Tramites
             {
                 int idRubro = Convert.ToInt32(cmbSucursales.SelectedValue);
                 cargarLista(idRubro);
+                txtAgente.Text = "";
+                txtDNI.Text = "";
                 
+
             }
             catch (Exception)
             {
@@ -208,7 +307,23 @@ namespace NobisSA.Tramites
 
         private void frmAgentes_Load(object sender, EventArgs e)
         {
-            Habilitar(false);
+        //    Habilitar(false);
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            
+        }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidaciones.SoloNumeros(e);
+        }
+
+        private void txtAgente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidaciones.SoloLetras(e);
         }
     }
 }

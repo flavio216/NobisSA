@@ -1,4 +1,7 @@
-﻿using NobisSA.Tramites;
+﻿using CapaNegocio;
+using NobisSA.Envios;
+using NobisSA.Terminos;
+using NobisSA.Tramites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +12,16 @@ namespace NobisSA
 {
     static class Program
     {
-        /// <summary>
-        /// Punto de entrada principal para la aplicación.
-        /// </summary>
         [STAThread]
         static void Main()
         {
+            Licencia.CheckLicense();
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmTramites());
+            
+            
         }
     }
 }

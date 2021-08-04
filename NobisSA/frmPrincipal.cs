@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CapaNegocio;
+using NobisSA.Envios;
+using NobisSA.Terminos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +18,31 @@ namespace NobisSA
         public frmPrincipal()
         {
             InitializeComponent();
+             btnInventario.Enabled = clsLogin.reg_inventario;
+             btnEnvios.Enabled = clsLogin.reg_envios;
+             btnTramites.Enabled = clsLogin.reg_tramites;
+             btnAFiliados.Enabled = clsLogin.reg_afiliados;
+             
+            
+/*
+            btnInventario.Enabled = clsLogin.reg_inventario;
+            btnEnvios.Enabled = clsLogin.reg_inventario;
+            btnTramites.Enabled = clsLogin.reg_inventario;
+            btnAFiliados.Enabled = clsLogin.reg_inventario;*/
+
+            /*
+             btnEnvios.Enabled = clsLogin.reg_envios;
+             btnInventario.Enabled = clsLogin.reg_envios;
+             btnAFiliados.Enabled = clsLogin.reg_envios;
+             btnTramites.Enabled = clsLogin.reg_envios;*/
+            /*
+                        btnInventario.Enabled = clsLogin.reg_inventario;
+                        btnEnvios.Enabled = clsLogin.reg_inventario;
+                        btnTramites.Enabled = clsLogin.reg_inventario;
+                        btnAFiliados.Enabled = clsLogin.reg_inventario;*/
+
+            /*  btnAFiliados.Enabled = clsLogin.reg_inventario;
+              btnTramites.Enabled = clsLogin.reg_inventario;*/
         }
         private Form activeForm = null;
         public void abrirFormHijo(Form formHijo, Panel panel)
@@ -38,6 +66,26 @@ namespace NobisSA
         private void btnAFiliados_Click(object sender, EventArgs e)
         {
             abrirFormHijo(new frmAfiliados(), panelFormHijo);
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new frmProductos(), panelFormHijo);
+        }
+
+        private void btnEnvios_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new frmEnvios(), panelFormHijo);
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            lblBienvenido.Text = "Bienvenido: " +clsLogin.nombreusuario;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new frmTerminos(), panelFormHijo);
         }
     }
 }

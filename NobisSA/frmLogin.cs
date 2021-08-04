@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +18,12 @@ namespace NobisSA
         {
             InitializeComponent();
             lblHora.Text = DateTime.Now.ToString();
+            txtPass.PasswordChar = '•';
         }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
         private void msgError(string msg)
         {
             lblError.Text = "       " + msg;
@@ -66,7 +72,7 @@ namespace NobisSA
             if (txtUser.Text == "USUARIO")
             {
                 txtUser.Text = "";
-                txtUser.ForeColor = Color.LightGray;
+                txtUser.ForeColor = Color.Black;
             }
         }
 
@@ -75,7 +81,7 @@ namespace NobisSA
             if (txtPass.Text == "CONTRASEÑA")
             {
                 txtPass.Text = "";
-                txtPass.ForeColor = Color.LightGray;
+                txtPass.ForeColor = Color.Black;
             }
         }
 
@@ -86,6 +92,16 @@ namespace NobisSA
                 txtPass.Text = "CONTRASEÑA";
                 txtPass.ForeColor = Color.DimGray;
             }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
