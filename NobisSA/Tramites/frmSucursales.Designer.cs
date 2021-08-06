@@ -135,12 +135,12 @@ namespace NobisSA
             this.lblSucursal.AutoSize = true;
             this.lblSucursal.Font = new System.Drawing.Font("Century Gothic", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSucursal.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSucursal.Location = new System.Drawing.Point(58, 9);
+            this.lblSucursal.Location = new System.Drawing.Point(84, 9);
             this.lblSucursal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSucursal.Name = "lblSucursal";
-            this.lblSucursal.Size = new System.Drawing.Size(235, 36);
+            this.lblSucursal.Size = new System.Drawing.Size(163, 36);
             this.lblSucursal.TabIndex = 30;
-            this.lblSucursal.Text = "Cargar sucursal";
+            this.lblSucursal.Text = "Sucursales";
             // 
             // lstSucursales
             // 
@@ -205,6 +205,7 @@ namespace NobisSA
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblSucursal);
             this.Name = "frmSucursales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSucursales";
             this.Load += new System.EventHandler(this.frmSucursales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorCliente)).EndInit();

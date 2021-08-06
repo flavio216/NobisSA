@@ -74,7 +74,7 @@ namespace CapaDato
             DataTable dt = new DataTable();
             conex.Conectar();
             conex.comando.CommandText = sql;
-            dt.Load(conex.comando.ExecuteReader());
+           dt.Load(conex.comando.ExecuteReader());
             conex.Desconectar();
             return dt;
         }

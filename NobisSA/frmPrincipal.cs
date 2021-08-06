@@ -87,5 +87,12 @@ namespace NobisSA
         {
             abrirFormHijo(new frmTerminos(), panelFormHijo);
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmLogin frm = new frmLogin();
+            frm.Show();
+        }
     }
 }

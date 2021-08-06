@@ -301,7 +301,7 @@ namespace NobisSA
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             DialogResult opcion;
-            opcion = MessageBox.Show("Desea eliminar los registros?", "Afiliados", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            opcion = MessageBox.Show("Desea eliminar los registros?", "Productos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (opcion == DialogResult.Yes)
             {
@@ -313,7 +313,7 @@ namespace NobisSA
                     if (Convert.ToBoolean(row.Cells[0].Value))
                     {
                         codigo = Convert.ToInt32(row.Cells[1].Value);
-                        sql = "delete from productos where idcodigo =" + codigo;
+                        sql = "update productos set estado = 0 where idcodigo =" + codigo;
                         bd.actualizarBD(sql);
                     }
                 }
@@ -343,6 +343,31 @@ namespace NobisSA
         private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
         {
             clsValidaciones.SoloNumeros(e);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult opcion;
+            opcion = MessageBox.Show("Desea eliminar los registros?", "Productos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (opcion == DialogResult.Yes)
+            {
+                int codigo;
+                string sql;
+                AccesoDatos bd = new AccesoDatos();
+                foreach (DataGridViewRow row in dtgProductoConStock.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells[0].Value))
+                    {
+                        codigo = Convert.ToInt32(row.Cells[1].Value);
+                        sql = "update productos set estado = 0 where idcodigo =" + codigo;
+                        bd.actualizarBD(sql);
+                    }
+                }
+
+            }
+            RellenarDTGproductosConStock();
+            lblCantidadSinStock.Text = "Cantidad de registros:" + dtgProductoConStock.Rows.Count.ToString();
         }
     }
 }

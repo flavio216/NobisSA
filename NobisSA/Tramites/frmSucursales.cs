@@ -197,6 +197,7 @@ namespace NobisSA
             if (resultado)
             {
                 MessageBox.Show("La sucursal se ha eliminado con exito.", "Elimiar sucursal", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Limpiar();
                 //this.Close();
             }
             else

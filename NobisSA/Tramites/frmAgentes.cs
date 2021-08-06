@@ -21,7 +21,7 @@ namespace NobisSA.Tramites
         {
             InitializeComponent();
             cargarCombo();
-            nuevo = false;
+            nuevo = true;
             btnCargar.Enabled = false;
             btnBorrar.Enabled = false;
             lstAgente.Items.Clear();
@@ -172,12 +172,14 @@ namespace NobisSA.Tramites
                         cargarLista(idsucursal);
                         Limpiar();
                         nuevo = true;
-                        //this.Close();
-                    }
+                            btnNuevo.Enabled = true;
+                            btnCargar.Enabled = false;
+                            //this.Close();
+                        }
                     else
                     {
                         MessageBox.Show("Error al cargar el agente...");
-                      
+                            nuevo = true;
                     }
 
                 }
@@ -220,6 +222,7 @@ namespace NobisSA.Tramites
                 btnBorrar.Enabled = true;
                 btnCargar.Enabled = true;
                 nuevo = false;
+                txtDNI.Enabled = false;
             }
 
             catch (Exception)
@@ -257,6 +260,7 @@ namespace NobisSA.Tramites
             nuevo = true;
             btnNuevo.Enabled = false;
             btnCargar.Enabled = true;
+            txtDNI.Enabled = true;
             
         }
 

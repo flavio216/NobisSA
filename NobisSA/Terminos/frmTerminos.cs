@@ -21,9 +21,19 @@ namespace NobisSA.Terminos
 
         private void lblPreguntas_Click(object sender, EventArgs e)
         {
-            frmPreguntas frm = new frmPreguntas();
+            frmContacto frm = new frmContacto();
             frm.Show();
         }
-       
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            frmContacto frm = new frmContacto();
+            frm.Show();
+        }
     }
 }

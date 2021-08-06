@@ -74,6 +74,7 @@ namespace NobisSA
             this.lblApellidoBuscar = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.PictureBox();
             this.errorCliente = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblSucursal = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -96,6 +97,7 @@ namespace NobisSA
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(165)))), ((int)(((byte)(66)))));
+            this.tabPage1.Controls.Add(this.lblSucursal);
             this.tabPage1.Controls.Add(this.cmbPlan);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
@@ -661,6 +663,18 @@ namespace NobisSA
             // 
             this.errorCliente.ContainerControl = this;
             // 
+            // lblSucursal
+            // 
+            this.lblSucursal.AutoSize = true;
+            this.lblSucursal.Font = new System.Drawing.Font("Century Gothic", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSucursal.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSucursal.Location = new System.Drawing.Point(374, 0);
+            this.lblSucursal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSucursal.Name = "lblSucursal";
+            this.lblSucursal.Size = new System.Drawing.Size(135, 36);
+            this.lblSucursal.TabIndex = 159;
+            this.lblSucursal.Text = "Afiliados";
+            // 
             // frmAfiliados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -727,5 +741,6 @@ namespace NobisSA
         private System.Windows.Forms.Label lblApellidoBuscar;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ErrorProvider errorCliente;
+        private System.Windows.Forms.Label lblSucursal;
     }
 }

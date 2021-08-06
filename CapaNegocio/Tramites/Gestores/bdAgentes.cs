@@ -20,7 +20,7 @@ namespace CapaNegocio
 
             try
             {
-                string consulta = "INSERT INTO agentes (idagente,agente, idsucursal,mail,contrasena) VALUES (@idagente,@agente,@idsucursal,@mail,@pass)";
+                string consulta = "INSERT INTO agentes (idagente,agente, idsucursal,mail,contrasena,estado) VALUES (@idagente,@agente,@idsucursal,@mail,@pass,1)";
                 SqlCommand cmd = new SqlCommand(consulta, conex.conexion);
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@idagente", id);
@@ -105,7 +105,7 @@ namespace CapaNegocio
 
             try
             {
-                string consulta = "delete from agentes WHERE idagente = @idagente";
+                string consulta = "update agentes set estado = 0 WHERE idagente = @idagente";
                 SqlCommand cmd = new SqlCommand(consulta, conex.conexion);
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@idagente", id);
@@ -148,7 +148,7 @@ namespace CapaNegocio
             AccesoDatos conex = new AccesoDatos();
             DataTable dt = new DataTable();
             conex.Conectar();
-            conex.pComando.CommandText = "SELECT idagente, agente, idsucursal,mail,contrasena FROM agentes WHERE idsucursal=" + id + " ORDER BY 2";
+            conex.pComando.CommandText = "SELECT idagente, agente, idsucursal,mail,contrasena FROM agentes WHERE estado = 1 and idsucursal=" + id + " ORDER BY 2";
             dt.Load(conex.pComando.ExecuteReader());
             conex.Desconectar();
             return dt;

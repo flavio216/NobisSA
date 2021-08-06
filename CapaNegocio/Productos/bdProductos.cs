@@ -140,7 +140,7 @@ namespace CapaNegocio
             {
 
                 conex.Conectar();
-                conex.pComando.CommandText = @"select idcodigo,nombre,stock,preciocompra from productos where estado = 0";
+                conex.pComando.CommandText = @"select idcodigo,nombre,stock,preciocompra from productos where estado = 0 and stock=0";
                 dt.Load(conex.pComando.ExecuteReader());
 
             }
@@ -165,7 +165,7 @@ namespace CapaNegocio
 
             try
             {
-                string consulta = "delete from productos WHERE idcodigo = @idcodigo";
+                string consulta = "update productos set estado = 0 WHERE idcodigo = @idcodigo";
                 SqlCommand cmd = new SqlCommand(consulta, conex.conexion);
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@idcodigo", id);

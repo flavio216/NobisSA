@@ -310,7 +310,7 @@ namespace NobisSA.Envios
                     if (Convert.ToBoolean(row.Cells[0].Value))
                     {
                         codigo = Convert.ToString(row.Cells[1].Value);
-                        sql = "delete from detalleenvios where iddetalle =" + codigo;
+                        sql = "delete from detalleenvios where idenvio =" + codigo;
                         bd.actualizarBD(sql);
                         RellenarDTGEnvios();
                     }

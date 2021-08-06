@@ -22,13 +22,15 @@ namespace NobisSA
             btnEnviarMail.Enabled = true;
             //txtNroTramite.Visible = false;
 
+            txtDocumento.MaxLength = 8;
+
             txtNroTramite.Text = "0";
             //Permisos Sucursales
 
-            dtpFechaAuditado.Enabled = clsLogin.reg_sucursales;
-            txtObservacion.Enabled = clsLogin.reg_sucursales;
-            btnAutorizar.Enabled = clsLogin.reg_sucursales;
-            btnRechazar.Enabled = clsLogin.reg_sucursales;
+            dtpFechaAuditado.Enabled = clsLogin.reg_auditoria;
+            txtObservacion.Enabled = clsLogin.reg_auditoria;
+            btnAutorizar.Enabled = clsLogin.reg_auditoria;
+            btnRechazar.Enabled = clsLogin.reg_auditoria;
             btnEnviarMail.Enabled = clsLogin.reg_sucursales;
 
             btnRechazar.Enabled = clsLogin.reg_auditoria;
@@ -40,17 +42,17 @@ namespace NobisSA
             pbSucursales.Visible = clsLogin.reg_admin;
 
             // Permisos Auditoria
-            /*  txtDocumento.Enabled = clsLogin.reg_auditoria;
-              cmbAgente.Enabled = clsLogin.reg_auditoria;
-              cmbSucursal.Enabled = clsLogin.reg_auditoria;
-              cmbTipoPago.Enabled = clsLogin.reg_auditoria;
-              cmbTipoTramite.Enabled = clsLogin.reg_auditoria;
-              txtObservacion.Enabled = clsLogin.reg_auditoria;
-              txtNroTramite.Enabled = clsLogin.reg_auditoria;
-              txtDescripcion.Enabled = clsLogin.reg_auditoria;
-              dtpFechaActual.Enabled = clsLogin.reg_auditoria;
-              pbAgente.Enabled = clsLogin.reg_auditoria;
-              pbSucursales.Enabled = clsLogin.reg_auditoria;*/
+              txtDocumento.Enabled = clsLogin.reg_sucursales;
+              cmbAgente.Enabled = clsLogin.reg_sucursales;
+              cmbSucursal.Enabled = clsLogin.reg_sucursales;
+              cmbTipoPago.Enabled = clsLogin.reg_sucursales;
+              cmbTipoTramite.Enabled = clsLogin.reg_sucursales;
+             // txtObservacion.Enabled = clsLogin.reg_envios;
+              txtNroTramite.Enabled = clsLogin.reg_sucursales;
+              txtDescripcion.Enabled = clsLogin.reg_sucursales;
+              dtpFechaActual.Enabled = clsLogin.reg_sucursales;
+              pbAgente.Enabled = clsLogin.reg_sucursales;
+              pbSucursales.Enabled = clsLogin.reg_sucursales;
 
             RellenarDTGtramites();
             // Habilitar(false);
@@ -225,22 +227,23 @@ namespace NobisSA
             txtEstado.Text = Convert.ToString(dtgTramite.CurrentRow.Cells[12].Value);
             if (Convert.ToBoolean(txtEstado.Text))
             {
-                btnRechazar.Visible = true;
-                btnRechazar.Enabled = true;
-                btnAutorizar.Visible = false;
-                btnAutorizar.Enabled = false;
+                btnRechazar.Visible = clsLogin.reg_auditoria; 
+                btnRechazar.Enabled = clsLogin.reg_auditoria; 
+                btnAutorizar.Visible = clsLogin.reg_auditoria; 
+                btnAutorizar.Enabled = clsLogin.reg_auditoria; 
 
             }
 
             if (!Convert.ToBoolean(txtEstado.Text))
             {
-                btnRechazar.Visible = false;
-                btnRechazar.Enabled = false;
-                btnAutorizar.Enabled = true;
-                btnAutorizar.Visible = true;
+                btnRechazar.Visible = clsLogin.reg_auditoria; 
+                btnRechazar.Enabled = clsLogin.reg_auditoria; 
+                btnAutorizar.Enabled = clsLogin.reg_auditoria; 
+                btnAutorizar.Visible = clsLogin.reg_auditoria; 
 
             }
             txtPdf.Text = Convert.ToString(dtgTramite.CurrentRow.Cells[13].Value);
+            cmbSucursal.Text = Convert.ToString(dtgTramite.CurrentRow.Cells[15].Value);
             //  txtPara.Text = Convert.ToString(dtgTramite.CurrentRow.Cells[14].Value);
             // btnCarga.Enabled = false;
             txtNroTramite.Enabled = false;
@@ -282,7 +285,7 @@ namespace NobisSA
 
         private void txtBuscarTramite_TextChanged(object sender, EventArgs e)
         {
-            string sql = @"select t.idtramite,tt.tramite,fecha, t.dni,af.nombre,af.apellido,formapago,descripcion,ag.agente,fechaauditado,observacion,estado from tramites t
+            string sql = @"select t.idtramite,tt.tramite,fecha, t.dni,af.nombre,af.apellido,formapago,descripcion,ag.agente,fechaauditado,observacion,t.estado from tramites t
                             inner join tipotramites tt on t.idTipoTramite = tt.idTipoTramite
                             inner join afiliados af on af.dni = t.dni
                             inner join tipopagos tp on tp.idtipopago = t.idtipopago
@@ -299,7 +302,7 @@ namespace NobisSA
             btnRechazar.Visible = true;
             btnRechazar.Enabled = true;
             RellenarDTGtramites();
-            tabControl1.SelectedIndex = 1;
+           // tabControl1.SelectedIndex = 1;
         }
 
         private void btnRechazar_Click(object sender, EventArgs e)
@@ -311,7 +314,7 @@ namespace NobisSA
             btnAutorizar.Visible = true;
             btnAutorizar.Enabled = true;
             RellenarDTGtramites();
-            tabControl1.SelectedIndex = 1;
+        //    tabControl1.SelectedIndex = 1;
         }
 
         private void btnBuscarPDFs_Click(object sender, EventArgs e)
@@ -457,25 +460,26 @@ namespace NobisSA
                }
            */
             MemoryStream ms = new MemoryStream();
-            if (OFDpdf.FileName == "OFD_pdf")
-            {
-                linkpdf = "Sin pdf";
-            }
-
-            else
-            {
-                linkpdf = OFDpdf.FileName;
-            }
-                var bytes = File.ReadAllBytes(linkpdf);
-                byte[] aByte = ms.ToArray();
-
+           
             bdTramites gestor = new bdTramites();
             if (nuevo)
             {
                 if (!validarPK(tramite2))
                 {
+                        if (OFDpdf.FileName == "OFD_pdf")
+                        {
+                            linkpdf = "Sin pdf";
+                        }
 
-                    clsTramites tramite = new clsTramites(tramite2, tipoTramite, fecha, dni, idtipopago, descripcion, idagente, true, bytes, url);
+                        else
+                        {
+                            linkpdf = OFDpdf.FileName;
+                        }
+                        var bytes = File.ReadAllBytes(linkpdf);
+                        byte[] aByte = ms.ToArray();
+
+
+                        clsTramites tramite = new clsTramites(tramite2, tipoTramite, fecha, dni, idtipopago, descripcion, idagente, true, bytes, url,"");
 
 
                     bool resultado = gestor.InsertarTramite(tramite);
@@ -503,11 +507,12 @@ namespace NobisSA
             else
             {
                 int nrotramite = int.Parse(txtNroTramite.Text);
-                clsTramites tramite3 = new clsTramites(nrotramite, tipoTramite, fecha, dni, idtipopago, descripcion, idagente, Convert.ToBoolean(txtEstado.Text), url);
+                    string observacion = txtObservacion.Text;
+                clsTramites tramite3 = new clsTramites(nrotramite, tipoTramite, fecha, dni, idtipopago, descripcion, idagente, Convert.ToBoolean(txtEstado.Text), url,observacion);
                 bool resultado2 = gestor.EditarTramite(tramite3);
                 if (resultado2)
                 {
-                    MessageBox.Show("El agente se ha editado con exito.", "Editar agente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("El tramite se ha editado con exito.", "Editar agente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     RellenarDTGtramites();
                     LimpiarTramite();
                     //    Habilitar(false);
@@ -515,7 +520,7 @@ namespace NobisSA
                 }
                 else
                 {
-                    MessageBox.Show("Ha ocurrido un error al intentar editar el agente" +
+                    MessageBox.Show("Ha ocurrido un error al intentar editar el tramite" +
                         ", por favor contacte al Administrador del sistema.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
@@ -538,7 +543,7 @@ namespace NobisSA
         {
             //Habilitar(true);
             nuevo = true;
-            txtNroTramite.Enabled = true;
+           // txtNroTramite.Enabled = true;
             LimpiarTramite();
         }
 

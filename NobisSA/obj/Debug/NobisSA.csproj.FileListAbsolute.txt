@@ -96,4 +96,4 @@ C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.Inventario.rpr
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.Afiliados.rprtAfiliados.resources
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.Envios.rprtEnvios.resources
 C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.Terminos.frmTerminos.resources
-C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.Terminos.frmPreguntas.resources
+C:\Users\FliaC\Documents\GitHub\NobisSA\NobisSA\obj\Debug\NobisSA.Terminos.frmContacto.resources

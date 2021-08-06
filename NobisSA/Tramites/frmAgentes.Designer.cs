@@ -56,7 +56,7 @@ namespace NobisSA.Tramites
             this.lstAgente.FormattingEnabled = true;
             this.lstAgente.Location = new System.Drawing.Point(426, 63);
             this.lstAgente.Name = "lstAgente";
-            this.lstAgente.Size = new System.Drawing.Size(164, 199);
+            this.lstAgente.Size = new System.Drawing.Size(161, 225);
             this.lstAgente.TabIndex = 84;
             this.lstAgente.SelectedIndexChanged += new System.EventHandler(this.lstAgente_SelectedIndexChanged);
             // 
@@ -72,14 +72,14 @@ namespace NobisSA.Tramites
             // lblagente
             // 
             this.lblagente.AutoSize = true;
-            this.lblagente.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblagente.Font = new System.Drawing.Font("Century Gothic", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblagente.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblagente.Location = new System.Drawing.Point(190, 28);
+            this.lblagente.Location = new System.Drawing.Point(192, 9);
             this.lblagente.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblagente.Name = "lblagente";
-            this.lblagente.Size = new System.Drawing.Size(132, 20);
+            this.lblagente.Size = new System.Drawing.Size(132, 36);
             this.lblagente.TabIndex = 76;
-            this.lblagente.Text = "Cargar Agente";
+            this.lblagente.Text = "Agentes";
             // 
             // cmbSucursales
             // 
@@ -278,6 +278,7 @@ namespace NobisSA.Tramites
             this.Controls.Add(this.txtAgente);
             this.Controls.Add(this.lblagente);
             this.Name = "frmAgentes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAgentes";
             this.Load += new System.EventHandler(this.frmAgentes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorCliente)).EndInit();

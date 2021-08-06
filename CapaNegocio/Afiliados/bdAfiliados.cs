@@ -45,7 +45,8 @@ namespace CapaNegocio
                                                 inner join TipoEstadoCivil te on a.idEstadoCivil = te.IdTipoEstadoCivil
                                                 inner join localidades l on l.idlocalidad=a.idLocalidad
                                                 inner join planes p on p.idPlan=a.idPlan
-                                                inner join ciudades c on l.idCiudad=c.idCiudad";
+                                                inner join ciudades c on l.idCiudad=c.idCiudad
+                                                where estado = 1";
                                                 
                 dt.Load(conex.pComando.ExecuteReader());
 
@@ -178,7 +179,7 @@ namespace CapaNegocio
 
             try
             {
-                string consulta = "delete from afiliados WHERE dni = @dni";
+                string consulta = "update afiliados set estado = 0 WHERE dni = @dni";
                 SqlCommand cmd = new SqlCommand(consulta, conex.conexion);
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@dni", id);

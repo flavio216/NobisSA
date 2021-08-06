@@ -65,6 +65,7 @@ namespace NobisSA
             this.txtBuscarSinStock = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblSucursal = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.Listado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductoConStock)).BeginInit();
@@ -248,6 +249,7 @@ namespace NobisSA
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(165)))), ((int)(((byte)(66)))));
+            this.groupBox1.Controls.Add(this.lblSucursal);
             this.groupBox1.Controls.Add(this.btnCargar);
             this.groupBox1.Controls.Add(this.btnVolver);
             this.groupBox1.Controls.Add(this.btnBorrar);
@@ -350,7 +352,7 @@ namespace NobisSA
             // txtStock
             // 
             this.txtStock.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtStock.Location = new System.Drawing.Point(278, 228);
+            this.txtStock.Location = new System.Drawing.Point(350, 235);
             this.txtStock.Margin = new System.Windows.Forms.Padding(2);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(47, 23);
@@ -363,7 +365,7 @@ namespace NobisSA
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(196, 228);
+            this.label2.Location = new System.Drawing.Point(268, 235);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 19);
@@ -373,7 +375,7 @@ namespace NobisSA
             // txtPrecio
             // 
             this.txtPrecio.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPrecio.Location = new System.Drawing.Point(279, 186);
+            this.txtPrecio.Location = new System.Drawing.Point(351, 193);
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(63, 23);
@@ -386,7 +388,7 @@ namespace NobisSA
             this.lblPrecioText.AutoSize = true;
             this.lblPrecioText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioText.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblPrecioText.Location = new System.Drawing.Point(190, 186);
+            this.lblPrecioText.Location = new System.Drawing.Point(262, 193);
             this.lblPrecioText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPrecioText.Name = "lblPrecioText";
             this.lblPrecioText.Size = new System.Drawing.Size(90, 19);
@@ -396,7 +398,7 @@ namespace NobisSA
             // txtNombre
             // 
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNombre.Location = new System.Drawing.Point(278, 144);
+            this.txtNombre.Location = new System.Drawing.Point(350, 151);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(213, 23);
@@ -408,7 +410,7 @@ namespace NobisSA
             this.lblNombreText.AutoSize = true;
             this.lblNombreText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreText.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblNombreText.Location = new System.Drawing.Point(173, 144);
+            this.lblNombreText.Location = new System.Drawing.Point(245, 151);
             this.lblNombreText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombreText.Name = "lblNombreText";
             this.lblNombreText.Size = new System.Drawing.Size(77, 19);
@@ -418,7 +420,7 @@ namespace NobisSA
             // txtCodigo
             // 
             this.txtCodigo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCodigo.Location = new System.Drawing.Point(278, 102);
+            this.txtCodigo.Location = new System.Drawing.Point(350, 109);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(121, 23);
@@ -431,7 +433,7 @@ namespace NobisSA
             this.lblCodigoText.AutoSize = true;
             this.lblCodigoText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigoText.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblCodigoText.Location = new System.Drawing.Point(179, 102);
+            this.lblCodigoText.Location = new System.Drawing.Point(251, 109);
             this.lblCodigoText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCodigoText.Name = "lblCodigoText";
             this.lblCodigoText.Size = new System.Drawing.Size(71, 19);
@@ -469,6 +471,7 @@ namespace NobisSA
             this.button2.TabIndex = 18;
             this.button2.Text = "Eliminar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -576,6 +579,18 @@ namespace NobisSA
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
             // 
+            // lblSucursal
+            // 
+            this.lblSucursal.AutoSize = true;
+            this.lblSucursal.Font = new System.Drawing.Font("Century Gothic", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSucursal.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSucursal.Location = new System.Drawing.Point(351, 31);
+            this.lblSucursal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSucursal.Name = "lblSucursal";
+            this.lblSucursal.Size = new System.Drawing.Size(155, 36);
+            this.lblSucursal.TabIndex = 89;
+            this.lblSucursal.Text = "Productos";
+            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -638,5 +653,6 @@ namespace NobisSA
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblSucursal;
     }
 }

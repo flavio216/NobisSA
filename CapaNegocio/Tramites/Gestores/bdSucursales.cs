@@ -20,7 +20,7 @@ namespace CapaNegocio
 
             try
             {
-                string consulta = "INSERT INTO sucursales (idsucursal, sucursal) VALUES (@idsucursal,@sucursal)";
+                string consulta = "INSERT INTO sucursales (idsucursal, sucursal,estado) VALUES (@idsucursal,@sucursal,1)";
                 SqlCommand cmd = new SqlCommand(consulta, conex.conexion);
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@idsucursal", idsucursal);
@@ -54,7 +54,7 @@ namespace CapaNegocio
             AccesoDatos conex = new AccesoDatos();
             DataTable dt = new DataTable();
             conex.Conectar();
-            conex.pComando.CommandText = "SELECT idsucursal, sucursal FROM sucursales ORDER BY 1";
+            conex.pComando.CommandText = "SELECT idsucursal, sucursal FROM sucursales where estado = 1 ORDER BY 1";
             dt.Load(conex.pComando.ExecuteReader());
             conex.Desconectar();
             return dt;
@@ -106,7 +106,7 @@ namespace CapaNegocio
 
             try
             {
-                string consulta = "delete from sucursales WHERE idSucursal = @idSucursal";
+                string consulta = "update sucursales set estado = 0 WHERE idSucursal = @idSucursal";
                 SqlCommand cmd = new SqlCommand(consulta, conex.conexion);
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@idSucursal", id);

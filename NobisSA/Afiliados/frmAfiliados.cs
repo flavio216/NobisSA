@@ -363,7 +363,7 @@ namespace NobisSA
                     if (Convert.ToBoolean(row.Cells[0].Value))
                     {
                         dni = Convert.ToInt32(row.Cells[1].Value);
-                        sql = "delete from afiliados where dni =" + dni;
+                        sql = "update afiliados set estado = 0 where  dni =" + dni;
                         bd.actualizarBD(sql);
                         tabControl1.SelectedIndex = 1;
                     }

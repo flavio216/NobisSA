@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NobisSA.Terminos
 {
-    public partial class frmPreguntas : Form
+    public partial class frmContacto : Form
     {
-        public frmPreguntas()
+        public frmContacto()
         {
             InitializeComponent();
         }
